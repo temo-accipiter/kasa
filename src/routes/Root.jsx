@@ -1,5 +1,4 @@
 import "../styles/main.scss";
-import React from "react";
 import Banner from "../components/banner/Banner";
 import coastBanner from "../assets/coast.png";
 import Card from "../components/card/Card";   // Importation du composant Card
@@ -7,7 +6,7 @@ import logements from "../data/logements.json";   // Importation des données de
 
 export default function Root() {
   return (
-    <div className="home">
+    <div className="home">   {/* La fonction Root renvoie un élément div avec la classe home, servant comme conteneur principal pour la page d'accueil */}
       {/* Utilisation du composant Banner avec des propriétés image et text */}
       <Banner
         image={coastBanner}
@@ -18,7 +17,7 @@ export default function Root() {
       <div className="card-list">
         {/* Utilisation de la méthode map pour créer des éléments Card pour chaque logement */}
         {logements.map((logementData) => (
-          <Card key={logementData.id} logement={logementData} />   // Affiche une carte de logement en utilisant le composant Card avec les données du logement
+          <Card key={logementData.id} logement={logementData} />   // Appel au composant Card avec les données du logement et une clé unique basée sur l'ID du logement
         ))}
       </div>
     </div>

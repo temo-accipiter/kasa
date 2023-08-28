@@ -1,6 +1,6 @@
 import "../../styles/main.scss";
 import React from "react";
-import starInactive from "../../assets/star-gris.svg";
+import starInactive from "../../assets/star-inactive.svg";
 import starActive from "../../assets/star-active.svg";
 
 export default function StarRating({ rating }) {
