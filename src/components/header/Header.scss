@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1240px;
+    height: 68px;
+    margin: 4rem 10rem 0 10rem;
+    & img {
+        width: 210px;
+        height: 68px;
+    }
+    & a {
+        color: $primary-color;
+        text-decoration: none;
+        margin-left: 11rem;
+        &.active {
+            text-decoration: underline;
+        }
+    }
+}
