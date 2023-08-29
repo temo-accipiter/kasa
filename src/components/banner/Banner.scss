@@ -22,17 +22,19 @@
 
     &_text {
         position: absolute;
-        top: 30%;
-        left: 50%;
+        top: 15%;
         text-align: center;
-        background-color: bisque;
         width: 100%;
-        transform: translate(-50%, -50%);
         font-size: 4.8rem;
         color: #FFFFFF;
 
+        @media (max-width: 699px) {
+            font-size: 4rem;
+        }
+
         @media (max-width: 375px) {
             text-align: left;
+            margin-left: 2rem;
             font-size: 2.4rem;
         }
     }

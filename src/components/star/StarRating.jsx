@@ -1,6 +1,6 @@
 import "../../styles/main.scss";
-import starInactive from "../../assets/star-inactive.svg";
-import starActive from "../../assets/star-active.svg";
+import starInactive from "../../assets/star-inactive.png";
+import starActive from "../../assets/star-active.png";
 
 export default function StarRating({ rating }) {
   // Création d'un tableau d'étoiles en fonction de la note reçue

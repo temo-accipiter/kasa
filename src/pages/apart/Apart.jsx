@@ -19,31 +19,25 @@ export default function Apart() {
   return (
     <div className="apart">
       <div className="apart_container">
-        <div className="apart_slideshow">
-          <Slideshow images={logement.pictures} />
-        </div>
+        <Slideshow images={logement.pictures} />
 
         <div className="apart_content">
-          <div className="apart_titlelocation">
-            <h2 className="apart_titlelocation_title">{logement.title}</h2>
-            <h3 className="apart_titlelocation_location">{logement.location}</h3>
+          <div className="apart_content_1">
+            <h2 className="apart_content_title">{logement.title}</h2>
+            <h3 className="apart_content_location">{logement.location}</h3>
+            <div className="apart_content_tags">
+              {/* Utilisation d'une boucle pour afficher les tags */}
+              {logement.tags.map((tag, index) => (
+                <button key={index} className="apart_content_tag">{tag}</button>))}
+            </div>
           </div>
+          
+          <div className="apart_content_2">
+            <div className="apart_host">   {/* photo et nom de host */}
+              <h3 className="apart_host_name">{logement.host.name}</h3>
+              <img src={logement.host.picture} alt="host" className="apart_host_img" />
+            </div>
 
-          <div className="apart_host">   {/* photo et nom de host */}
-            <h3 className="apart_host_name">{logement.host.name}</h3>
-            <img src={logement.host.picture} alt="host" className="apart_host_img" />
-          </div>
-
-          <div className="apart_tags">
-          {/* Utilisation d'une boucle pour afficher les tags */}
-            {logement.tags.map((tag, index) => (
-              <button key={index} className="apart_tags_tag">
-                {tag}
-            </button>
-            ))}
-          </div>
-
-          <div className="apart_rating">
             <StarRating rating={logement.rating} /> {/* Convertir une chaîne de caractères en un nombre entier */}
           </div>
         </div>

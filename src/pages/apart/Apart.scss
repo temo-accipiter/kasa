@@ -12,52 +12,50 @@
     }
 
     &_content {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 3rem 0;
-    }
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-    &_titlelocation {
-        width: 100%;
+        @media (max-width: 375px) {
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        &_1 {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            
+            @media (max-width: 375px) {
+                width: 100%;
+            }
+        }
 
         &_title {
             color: $primary-color;
             font-size: 3.6rem;
-            margin: 0 0 1rem 0;
+            margin: 0;
+
+            @media (max-width: 375px) {
+                font-size: 1.8rem;
+            }
         }
 
         &_location {
             color: $primary-color;
             font-size: 1.8rem;
             margin: 0;
-        }
-    }
-
-    &_host {
-        margin-left: 44rem;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        gap: 1rem;
-
-        &_name {
-            color: $primary-color;
-            max-width: 87px;
-            font-size: 1.8rem;
-            margin: 0;
+            
+            @media (max-width: 375px) {
+                font-size: 1.4rem;
+            }
         }
 
-        &_img {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
+        &_tags {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
         }
-    }
-
-    &_tags {
-        display: flex;
-        gap: 1rem;
-        width: 100%;
 
         &_tag {
             background-color: $primary-color;
@@ -65,12 +63,60 @@
             font-size: 1.4rem;
             padding: 0.5rem 3rem;
             border: none;
-            border-radius: 25px;
+            border-radius: 10px;
+
+            @media (max-width: 375px) {
+                font-size: 1rem;
+                height: 20px;
+                padding: 0.3rem 1rem;
+            }
+        }
+        
+        &_2 {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+
+            @media (max-width: 375px) {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
         }
     }
 
-    &_rating {
-        margin-left: 43rem;
+    &_host {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1rem;
+
+        @media (max-width: 375px) {
+            order: 2;
+        }
+
+        &_name {
+            color: $primary-color;
+            max-width: 87px;
+            font-size: 1.8rem;
+            margin: 0;
+
+            @media (max-width: 375px) {
+                font-size: 1.2rem;
+            }
+        }
+
+        &_img {
+            border-radius: 50%;
+            width: 64px;
+            height: 64px;
+
+            @media (max-width: 375px) {
+                width: 32px;
+                height: 32px;    
+            }
+        }
     }
 
     &_collapse {

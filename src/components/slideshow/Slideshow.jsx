@@ -21,21 +21,19 @@
   
     return (
       <div className="slideshow">
-        <div className="slideshow_image_container">
-          <button className="slideshow_arrow slideshow_arrow-left" onClick={PrevSlide}>
-            <img src={leftArrowImage} alt="Previous" />
-          </button>
+        <button className="slideshow_arrow slideshow_arrow-left" onClick={PrevSlide}>
+          <img src={leftArrowImage} alt="Previous" />
+        </button>
   
-          <div className="slideshow_image_number">
-            {currentSlide + 1}/{images.length}
-          </div>
-  
-          <img src={images[currentSlide]} alt={`${currentSlide}`} className="slideshow_image" />
-  
-          <button className="slideshow_arrow slideshow_arrow-right" onClick={NextSlide}>
-            <img src={rightArrowImage} alt="Next" />
-          </button>
+        <div className="slideshow_number">
+          {currentSlide + 1}/{images.length}
         </div>
+
+        <img src={images[currentSlide]} alt={`${currentSlide}`} className="slideshow_image" />
+  
+        <button className="slideshow_arrow slideshow_arrow-right" onClick={NextSlide}>
+          <img src={rightArrowImage} alt="Next" />
+        </button>
       </div>
     );
   };
