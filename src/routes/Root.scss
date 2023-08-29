@@ -1,8 +1,14 @@
 .home {
-  max-width: 1240px;
-  margin: 4rem 10rem;
-}
+  padding: 0 2rem;
 
+  &_container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1240px;
+    gap: 2.5rem;
+    margin: auto;
+  }
+}
 
 
   

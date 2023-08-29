@@ -14,24 +14,24 @@ const router = createBrowserRouter([   // Création d'un routeur en utilisant cr
     path: "/",
     element: (
       <>
-        <Header /> 
+        <Header />
         <Root />   {/* Affichage de la page d'accueil */}
         <Footer /> 
       </>
     ),
     errorElement: (
       <>
-      <Header /> 
-      <ErrorPage />   {/* Affichage de la page d'erreur */}
-      <Footer /> 
-    </>
+        <Header />
+        <ErrorPage />   {/* Affichage de la page d'erreur */}
+        <Footer /> 
+      </>
   ),
   },
   {
     path: "/about",
     element: (
       <>
-        <Header /> 
+        <Header />
         <About />   {/* Affichage de la page "A propos" */}
         <Footer /> 
       </>
@@ -41,7 +41,7 @@ const router = createBrowserRouter([   // Création d'un routeur en utilisant cr
     path: "/apart/:id",
     element: (
       <>
-        <Header /> 
+        <Header />
         <Apart />   {/* Affichage de la page de logement */}
         <Footer /> 
       </>

@@ -4,6 +4,7 @@
     background-color: $bg-color;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+
     &_header {
       display: flex;
       align-items: center;
@@ -14,25 +15,28 @@
       border-radius: 5px;
       color: #FFFFFF;
     }
+
     &_content {
       color: $primary-color;
       padding: 1rem 2rem;
       }
+
     &_container {
       display: flex;
       flex-direction: column;
       max-width: 1023px;
       margin: auto;
-      margin-top: 3rem;
-      margin-bottom: 3rem;
       gap: 3rem;
     }
+
     &_text {
       margin: 0;
     }  
+
     &_arrow {
       transition: transform 0.5s ease-out;
       cursor: pointer;
+      
       &-rotated {
         transform: rotate(-180deg);
       }

@@ -1,5 +1,5 @@
   import "../../styles/main.scss";
-  import React, { useState } from "react";
+  import { useState } from "react";
   import PropTypes from "prop-types";
   import leftArrowImage from "../../assets/arrowleft.png";
   import rightArrowImage from "../../assets/arrowright.png";

@@ -1,5 +1,4 @@
 import "../../styles/main.scss";
-import React from "react";
 import starInactive from "../../assets/star-inactive.svg";
 import starActive from "../../assets/star-active.svg";
 

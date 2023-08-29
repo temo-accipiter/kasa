@@ -1,18 +1,44 @@
 .errorpage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: $primary-color;
+    padding: 0 2rem;
+
+    &_container {
+        display: flex;
+        flex-direction: column;
+        max-width: 1240px;
+        gap: 2.5rem;
+        margin: auto;
+        align-items: center;
+        color: $primary-color;
+    }
+
     &_title {
-        font-size: 28.8rem;
+        font-size: 288px; /* Taille de police initiale à 288px */
         font-weight: 700;
         margin: 0;
+        transition: font-size 50ms; /* Ajoute une transition pour une animation en douceur */
+
+        // Ajout de média pour ajuster la taille de police en pourcentage de la largeur du conteneur
+        @media (max-width: 1240px) {
+            font-size: 23.2vw; /* 288px / 1240px = 0.232 * 100vw */
+        }
     }
+
     &_subtitle {
         font-size: 3.6rem;
+        margin-top: 5rem;
+        text-align: center;
+
+        @media (max-width: 375px) {
+            font-size: 1.8rem
+        }
     }
+
     &_link {
         font-size: 1.8rem;
         color: $primary-color;
+
+        @media (max-width: 375px) {
+            font-size: 1.4rem
+        }
     }
 }

@@ -1,5 +1,4 @@
 import "../../styles/main.scss";
-import React from "react";
 import { Link } from "react-router-dom";   // Importation de React Router pour créer des liens
 
 export default function Card({ logement }) {

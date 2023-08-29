@@ -1,48 +1,64 @@
 @use "../../styles/abstracts/variables.scss";
 
 .apart {
-    max-width: 1240px;
-    margin: 4rem 10rem;
+    padding: 0 2rem;
+
+    &_container {
+        display: flex;
+        flex-direction: column;
+        max-width: 1240px;
+        gap: 2.5rem;
+        margin: auto;
+    }
+
     &_content {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 3rem 0;
     }
+
     &_titlelocation {
         width: 100%;
+
         &_title {
             color: $primary-color;
             font-size: 3.6rem;
             margin: 0 0 1rem 0;
         }
+
         &_location {
             color: $primary-color;
             font-size: 1.8rem;
             margin: 0;
         }
     }
+
     &_host {
         margin-left: 44rem;
         display: flex;
         align-items: center;
         width: 100%;
         gap: 1rem;
+
         &_name {
             color: $primary-color;
             max-width: 87px;
             font-size: 1.8rem;
             margin: 0;
         }
+
         &_img {
             width: 64px;
             height: 64px;
             border-radius: 50%;
         }
     }
+
     &_tags {
         display: flex;
         gap: 1rem;
         width: 100%;
+
         &_tag {
             background-color: $primary-color;
             color: #FFFFFF;
@@ -52,17 +68,20 @@
             border-radius: 25px;
         }
     }
+
     &_rating {
         margin-left: 43rem;
     }
+
     &_collapse {
         display: flex;
         justify-content: space-between;
-        margin-top: 3rem;
+
         &_element {
             max-width: 582px;
             height: 52px;
         }
+
         &_list{
             list-style-type: none;
         }

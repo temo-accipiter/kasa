@@ -1,17 +1,20 @@
 import "../../styles/main.scss";
-import React from "react";
 import { NavLink } from "react-router-dom"; // Utilisation de NavLink au lieu de Link
 import logo from "../../assets/LOGO.png";
 
 export default function Header() {
   return (
     <header className="header">
-      <img src={logo} alt="Logo" />
+      <div className="header_container">
+        <div className="header_logo">
+          <img src={logo} alt="Logo" />
+        </div>
 
-      <nav>
-        <NavLink to="/">Accueil</NavLink>
-        <NavLink to="/about">A propos</NavLink>
-      </nav>
+        <nav className="header_nav">
+          <NavLink to="/">Accueil</NavLink>
+          <NavLink to="/about">A propos</NavLink>
+        </nav>
+      </div>
     </header>
   );
 }

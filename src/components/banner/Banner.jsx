@@ -1,5 +1,4 @@
 import "../../styles/main.scss";
-import React from "react";
 
 export default function Banner({ image, alt, text }) {
   return (
@@ -11,9 +10,7 @@ export default function Banner({ image, alt, text }) {
       <div className="banner-overlay"></div>
 
       {/* Afficher le texte de la bannière */}
-      <div className="banner_text">
-        <p>{text}</p>
-      </div>
+      <p className="banner_text">{text}</p>
     </div>
   );
 }
