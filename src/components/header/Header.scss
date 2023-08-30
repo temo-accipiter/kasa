@@ -1,6 +1,10 @@
 .header {
     padding: 3rem 2rem;
 
+    @media (max-width: $small) {
+        padding: 0 2rem;
+    }
+
     &_container {
         display: flex;
         align-items: center;
@@ -8,6 +12,7 @@
         max-width: 1240px;
         height: 68px;
         margin: auto;
+        gap: 2rem;
     }
 
     &_logo {
@@ -18,7 +23,7 @@
             height: 100%;
         }
 
-        @media (max-width: 375px) {
+        @media (max-width: $small) {
             width: 120px;
         }
     }
@@ -28,9 +33,10 @@
         justify-content: space-between;
         width: 265px;
         font-size: 2.2rem;
+        gap: 1rem;
 
-        @media (max-width: 375px) {
-            width: 150px;
+        @media (max-width: $small) {
+            max-width: 200px;
             font-size: 1.5rem;
         }
     }

@@ -1,8 +1,13 @@
+@use "../../styles/abstracts/variables.scss";
+
 .banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     height: 223px;
     overflow: hidden;
-    border-radius: 25px;
+    border-radius: map-get($br , large);
 
     & img {
         width: 100%;
@@ -22,24 +27,16 @@
 
     &_text {
         position: absolute;
-        top: 15%;
-        text-align: center;
-        width: 100%;
-        font-size: 4.8rem;
-        color: #FFFFFF;
+        font-size: 4.5rem;
+        color: $tertiary-color;
+        margin: 2rem;
 
-        @media (max-width: 699px) {
-            font-size: 4rem;
-        }
-
-        @media (max-width: 375px) {
-            text-align: left;
-            margin-left: 2rem;
+        @media (max-width: $small) {
             font-size: 2.4rem;
         }
     }
     
-    @media (max-width: 375px) {
+    @media (max-width: $small) {
         max-height: 111px;
     }
 }

@@ -41,19 +41,23 @@ export default function Apart() {
             <StarRating rating={logement.rating} /> {/* Convertir une chaîne de caractères en un nombre entier */}
           </div>
         </div>
-
+        
         <div className="apart_collapse">
-          <Collapse title="Description" className="apart_collapse_element">
-            <p>{logement.description}</p>
-          </Collapse>
+          <div className="apart_collapse_element">
+            <Collapse title="Description">
+              <p>{logement.description}</p>
+            </Collapse>
+          </div>
 
-          <Collapse title="Équipements" className="apart_collapse_element">
-            <ul className="apart_collapse_list">
-              {logement.equipments.map((equipment, index) => (
-                <li key={index}>{equipment}</li>
-              ))}
-            </ul>
-          </Collapse>
+          <div className="apart_collapse_element">
+            <Collapse title="Équipements">
+              <ul className="apart_collapse_list">
+                {logement.equipments.map((equipment, index) => (
+                  <li key={index}>{equipment}</li>
+                ))}
+              </ul>
+            </Collapse>
+          </div>
         </div>
       </div>
     </div>

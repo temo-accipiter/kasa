@@ -9,8 +9,9 @@ export default function Banner({ image, alt, text }) {
       {/* Effet de superposition sombre */}
       <div className="banner-overlay"></div>
 
-      {/* Afficher le texte de la bannière */}
-      <p className="banner_text">{text}</p>
+      <div className="banner_text">{/* Afficher le texte de la bannière */}
+        <p>{text}</p>
+      </div>
     </div>
   );
 }

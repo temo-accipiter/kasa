@@ -1,12 +1,7 @@
 .errorpage {
-    padding: 0 2rem;
+    @include page-layout;
 
     &_container {
-        display: flex;
-        flex-direction: column;
-        max-width: 1240px;
-        gap: 2.5rem;
-        margin: auto;
         align-items: center;
         color: $primary-color;
     }
@@ -18,7 +13,7 @@
         transition: font-size 50ms; /* Ajoute une transition pour une animation en douceur */
 
         // Ajout de média pour ajuster la taille de police en pourcentage de la largeur du conteneur
-        @media (max-width: 1240px) {
+        @media (max-width: $medium) {
             font-size: 23.2vw; /* 288px / 1240px = 0.232 * 100vw */
         }
     }
@@ -28,7 +23,7 @@
         margin-top: 5rem;
         text-align: center;
 
-        @media (max-width: 375px) {
+        @media (max-width: $small) {
             font-size: 1.8rem
         }
     }
@@ -37,7 +32,7 @@
         font-size: 1.8rem;
         color: $primary-color;
 
-        @media (max-width: 375px) {
+        @media (max-width: $small) {
             font-size: 1.4rem
         }
     }

@@ -2,8 +2,6 @@ import "../../styles/main.scss";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import arrowIcon from "../../assets/fleche.png";
-
-// Définition du composant Collapse en utilisant les props title, children et className
 export default function Collapse({ title, children, className }) {
   const [isCollapsed, setIsCollapsed] = useState(true);   // Utilisation du hook useState pour gérer l'état du collapse
 
@@ -18,8 +16,11 @@ export default function Collapse({ title, children, className }) {
           onClick={() => setIsCollapsed(!isCollapsed)}   // Fonction pour basculer l'état du collapse
         />
       </div>
-      {/* Affichage du contenu si le collapse n'est pas fermé */}
-      {!isCollapsed && <div className="collapse_content">{children}</div>}
+      {/* Affichage du contenu si le collapse n'est pas fermé*/}
+      {!isCollapsed && (<div className="collapse_content collapse_content-open">{children}</div>)}
+      {/*{isCollapsed && (<div className="collapse_content collapse_content-close"></div>)}*/}
+
+      {/*<div className={`collapse_content ${isCollapsed ? "collapse_content-close" : "collapse_content-open"}`}>{children}</div>*/}
     </div>
   );
 }

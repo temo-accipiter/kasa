@@ -1,11 +1,10 @@
 .about {
-    padding: 0 2rem;
+    @include page-layout;
 
-    &_container {
-        display: flex;
-        flex-direction: column;
-        max-width: 1240px;
-        gap: 2.5rem;
-        margin: auto;
+    &_collapse_element {
+        @media (max-width: $small) {
+            width: 100%;
+        }
     }
 }
+

@@ -1,13 +1,5 @@
 .home {
-  padding: 0 2rem;
-
-  &_container {
-    display: flex;
-    flex-direction: column;
-    max-width: 1240px;
-    gap: 2.5rem;
-    margin: auto;
-  }
+  @include page-layout;
 }
 
 
