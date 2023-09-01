@@ -12,6 +12,7 @@ export default function About() {
           image={landscapeBanner} 
           alt="Paysage" 
         />
+
         <div className="about_collapse_container">
           <div className="collapse_container">
             <Collapse title="Fiabilité" className="about_collapse_element">
@@ -21,6 +22,7 @@ export default function About() {
                 régulièrement vérifiées par nos équipes.
               </p>
             </Collapse>
+
             <Collapse title="Respect" className="about_collapse_element">
               <p className="collapse_text">
                 Les bienveillance fait partie des valeurs fondatrices de Kasa. Tout
@@ -28,6 +30,7 @@ export default function About() {
                 entraînera une exclusion de notre plateforme.
               </p>
             </Collapse>
+
             <Collapse title="Service" className="about_collapse_element">
               <p className="collapse_text">
                 Les bienveillance fait partie des valeurs fondatrices de Kasa. Tout
@@ -35,6 +38,7 @@ export default function About() {
                 entraînera une exclusion de notre plateforme.
               </p>
             </Collapse>
+            
             <Collapse title= "Sécurité" className= "about_collapse_element">
               <p className="collapse_text">
                 La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que

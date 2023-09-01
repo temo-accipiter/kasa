@@ -2,6 +2,7 @@ import "../../styles/main.scss";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import arrowIcon from "../../assets/fleche.png";
+
 export default function Collapse({ title, children, className }) {
   const [isCollapsed, setIsCollapsed] = useState(true);   // Utilisation du hook useState pour gérer l'état du collapse
 
@@ -17,10 +18,9 @@ export default function Collapse({ title, children, className }) {
         />
       </div>
       {/* Affichage du contenu si le collapse n'est pas fermé*/}
-      {!isCollapsed && (<div className="collapse_content collapse_content-open">{children}</div>)}
-      {/*{isCollapsed && (<div className="collapse_content collapse_content-close"></div>)}*/}
-
       {/*<div className={`collapse_content ${isCollapsed ? "collapse_content-close" : "collapse_content-open"}`}>{children}</div>*/}
+
+      {!isCollapsed && (<div className="collapse_content collapse_content-open">{children}</div>)}
     </div>
   );
 }
@@ -29,5 +29,6 @@ export default function Collapse({ title, children, className }) {
 Collapse.propTypes = {
   title: PropTypes.string.isRequired, // title doit être une chaîne de caractères requise
   children: PropTypes.node.isRequired, // children doit être un nœud (élément React) requis
-  className: PropTypes.string.isRequired, // className doit être une chaîne de caractères requise
+  className: PropTypes.string, // className doit être une chaîne de caractères requise
 };
+

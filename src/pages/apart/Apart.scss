@@ -133,6 +133,14 @@
             gap: 2rem;
         }
     }
+
+    &_error {
+        text-align: center;
+        color: $primary-color;
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 10rem 0 20rem 0;
+    }
 }
 
   

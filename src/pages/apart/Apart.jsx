@@ -50,8 +50,8 @@ export default function Apart() {
           </div>
 
           <div className="apart_collapse_element">
-            <Collapse title="Équipements">
-              <ul className="apart_collapse_list">
+            <Collapse title="Équipements" className="apart_collapse_list">
+              <ul>
                 {logement.equipments.map((equipment, index) => (
                   <li key={index}>{equipment}</li>
                 ))}

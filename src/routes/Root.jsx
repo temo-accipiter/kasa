@@ -17,8 +17,8 @@ export default function Root() {
         
         <div className="card_container">
           {/* Utilisation de la méthode map pour créer des éléments Card pour chaque logement */}
-          {logements.map((logementData) => (
-            <Card key={logementData.id} logement={logementData} />   // Appel au composant Card avec les données du logement et une clé unique basée sur l'ID du logement
+          {logements.map((item) => (
+            <Card key={item.id} logement={item} />   // Appel au composant Card avec les données du logement et une clé unique basée sur l'ID du logement
           ))}
         </div>
       </div>

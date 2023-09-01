@@ -1,7 +1,6 @@
 @use "../../styles/abstracts/variables.scss";
 
 .collapse {
-  background-color: $bg-color;
   border-radius: map-get($br , medium);
   animation: collapse-open 0.5s backwards;
 
@@ -23,6 +22,7 @@
     }
 
     &_content {
+      background-color: $bg-color;
       color: $primary-color;
       padding: 1rem 2rem;
       border-radius: map-get($br , mixed);
@@ -30,7 +30,7 @@
       &-open {
         animation: collapse-open 0.5s backwards;
       }
-
+    
       &-close {
         animation: collapse-close 0.5s forwards; 
       }
@@ -62,5 +62,4 @@
       }
     }
   }
-
 
