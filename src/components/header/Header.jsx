@@ -1,16 +1,16 @@
 import "../../styles/main.scss";
-import { NavLink, Link } from "react-router-dom"; // Utilisation de NavLink pour la gestion des styles actifs
+import { NavLink } from "react-router-dom"; // Utilisation de NavLink pour la gestion des styles actifs
 import logo from "../../assets/LOGO.png";
 
 export default function Header() {
   return (
     <header className="header">
       <div className="header_container">
-        <div className="header_logo">
-          <Link to="/">
+        <NavLink to="/">
+          <div className="header_logo">
             <img src={logo} alt="Logo" />
-          </Link>
-        </div>
+          </div>
+        </NavLink>
 
         <nav className="header_nav">
           <NavLink to="/">Accueil</NavLink>

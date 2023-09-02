@@ -1,65 +1,72 @@
 @use "../../styles/abstracts/variables.scss";
 
 .collapse {
+  display: flex;
+  flex-direction: column;
   border-radius: map-get($br , medium);
   animation: collapse-open 0.5s backwards;
 
-    &_header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px 10px 15px;
-      height: 52px;
-      background-color: $primary-color;
-      border-radius: map-get($br , small);
-      font-size: 1.8rem;
-      color: $tertiary-color;
+  &_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px 10px 15px;
+    height: 52px;
+    background-color: $primary-color;
+    border-radius: map-get($br , small);
+    font-size: 1.8rem;
+    color: $tertiary-color;
 
-      @media (max-width: $small) {
-        height: 30px; 
-        font-size: 1.3rem;  
-      }
-    }
-
-    &_content {
-      background-color: $bg-color;
-      color: $primary-color;
-      padding: 1rem 2rem;
-      border-radius: map-get($br , mixed);
-  
-      &-open {
-        animation: collapse-open 0.5s backwards;
-      }
-    
-      &-close {
-        animation: collapse-close 0.5s forwards; 
-      }
-    }
-
-    &_container {
-      display: flex;
-      flex-direction: column;
-      max-width: 1023px;
-      margin: auto;
-      gap: 3rem;
-    }
-
-    &_text {
-      margin: 0;
-    }  
-
-    &_arrow {
-      transition: transform 0.5s ease-out;
-      cursor: pointer;
-
-      @media (max-width: $small) { 
-        width: 2rem;  
-        height: 2rem;
-    }
-      
-      &-rotated {
-        transform: rotate(-180deg);
-      }
+    @media (max-width: $small) {
+      height: 30px; 
+      font-size: 1.3rem;  
     }
   }
 
+  &_arrow {
+    transition: transform 0.5s ease-out;
+    cursor: pointer;
+
+    @media (max-width: $small) { 
+      width: 2rem;  
+      height: 2rem;
+    }
+      
+    &-rotated {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &_content {
+    background-color: $bg-color;
+    color: $primary-color;
+    border-radius: map-get($br , mixed);
+    max-height: 0;
+    transition: all 0.5s ease-out;
+    transform-origin: top;
+
+    &.open {
+      max-height: 1000px;
+      padding: 1rem 2rem;
+      opacity: 1;
+      transform: scaleY(1);
+    }
+    
+    &.close {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+  }
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1023px;
+    margin: auto;
+    gap: 3rem;
+  }
+
+  &_text {
+    margin: 0;
+  }  
+}

@@ -13,7 +13,7 @@ export default function Apart() {
 
   // Si le logement n'est pas trouvé, affiche un message
   if (!logement) {
-    return <div>Logement non trouvé</div>;
+    return <div className="apart_error">Logement non trouvé</div>;
   }
 
   return (
@@ -25,10 +25,11 @@ export default function Apart() {
           <div className="apart_content_1">
             <h2 className="apart_content_title">{logement.title}</h2>
             <h3 className="apart_content_location">{logement.location}</h3>
+
             <div className="apart_content_tags">
               {/* Utilisation d'une boucle pour afficher les tags */}
-              {logement.tags.map((tag, index) => (
-                <button key={index} className="apart_content_tag">{tag}</button>))}
+              {logement.tags.map((tags, index) => (
+                <div key={`${tags}-${index}`} className="apart_content_tag">{tags}</div>))}
             </div>
           </div>
           
@@ -52,8 +53,8 @@ export default function Apart() {
           <div className="apart_collapse_element">
             <Collapse title="Équipements" className="apart_collapse_list">
               <ul>
-                {logement.equipments.map((equipment, index) => (
-                  <li key={index}>{equipment}</li>
+                {logement.equipments.map((equipments, index) => (
+                  <li key={`${equipments}-${index}`}>{equipments}</li>
                 ))}
               </ul>
             </Collapse>

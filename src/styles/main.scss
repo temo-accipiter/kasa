@@ -4,6 +4,8 @@
 @import 'base/typography';
 @import 'animations/keyframes';
 
+@import '../app/app';
+
 @import '../components/header/header'; 
 @import '../components/footer/footer'; 
 @import '../components/card/card'; 
@@ -12,7 +14,7 @@
 @import '../components/collapse/collapse'; 
 @import '../components/slideshow/slideshow'; 
 
-@import '../routes/root'; 
+@import '../pages/home/home'; 
 @import '../pages/about/about'; 
 @import '../pages/apart/apart'; 
 @import '../pages/errorpage/errorpage'; 

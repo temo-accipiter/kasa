@@ -9,15 +9,5 @@
     }
   }
   
-  @keyframes collapse-close {
-    from {
-       transform-origin: top;
-       transform: scaleY(1);
-    }
-    to {
-       transform-origin: top;
-       transform: scaleY(0);
-    }
-  }
  
   
