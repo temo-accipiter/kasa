@@ -10,13 +10,11 @@
     
     // Fonction pour passer à l'image précédente
     const PrevSlide = () => {
-      //setCurrentSlide((prevSlide) => (prevSlide === 0 ? images.length - 1 : prevSlide - 1));
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
+      setCurrentSlide((prevSlide) => (prevSlide === 0 ? images.length - 1 : prevSlide - 1));
     };
   
     const NextSlide = () => {
-      //setCurrentSlide((prevSlide) => (prevSlide === images.length - 1 ? 0 : prevSlide + 1));
-    setCurrentSlide((prevSlide) => (prevSlide - 1 + images.length) % images.length);
+      setCurrentSlide((prevSlide) => (prevSlide === images.length - 1 ? 0 : prevSlide + 1));
     };
   
     return (
