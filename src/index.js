@@ -9,9 +9,10 @@ import Apart from "./pages/apart/Apart";
 import App from "./app/App";
 
 const router = createBrowserRouter([   // Création d'un routeur en utilisant createBrowserRouter avec différentes routes et éléments correspondants
-  {
+  {        
+    //path: "/",
     element: <App />,
-    errorElement: <ErrorPage />,
+    //errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -24,6 +25,10 @@ const router = createBrowserRouter([   // Création d'un routeur en utilisant cr
       {
         path: "apart/:id",
         element: <Apart />,
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       },
     ]
   },
