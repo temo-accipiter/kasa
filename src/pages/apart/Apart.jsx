@@ -17,7 +17,7 @@ export default function Apart() {
   }
 
   return (
-    <div className="apart">
+    <main className="apart">
       <div className="apart__container">
         <Slideshow images={logement.pictures} />
 
@@ -70,6 +70,6 @@ export default function Apart() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   )
 }
