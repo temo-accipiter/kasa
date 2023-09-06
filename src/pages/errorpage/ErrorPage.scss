@@ -1,39 +1,39 @@
 .errorpage {
-    @include page-layout;
+  @include page-layout;
 
-    &_container {
-        align-items: center;
-        color: $primary-color;
+  &__container {
+    align-items: center;
+    color: $primary-color;
+  }
+
+  &__title {
+    font-size: 288px; /* Taille de police initiale à 288px */
+    font-weight: 700;
+    margin: 0;
+    transition: font-size 50ms; /* Ajoute une transition pour une animation en douceur */
+
+    // Ajout de média pour ajuster la taille de police en pourcentage de la largeur du conteneur
+    @media (max-width: $medium) {
+      font-size: 23.2vw; /* 288px / 1240px = 0.232 * 100vw */
     }
+  }
 
-    &_title {
-        font-size: 288px; /* Taille de police initiale à 288px */
-        font-weight: 700;
-        margin: 0;
-        transition: font-size 50ms; /* Ajoute une transition pour une animation en douceur */
+  &__subtitle {
+    font-size: 3.6rem;
+    margin-top: 5rem;
+    text-align: center;
 
-        // Ajout de média pour ajuster la taille de police en pourcentage de la largeur du conteneur
-        @media (max-width: $medium) {
-            font-size: 23.2vw; /* 288px / 1240px = 0.232 * 100vw */
-        }
+    @media (max-width: $small) {
+      font-size: 1.8rem;
     }
+  }
 
-    &_subtitle {
-        font-size: 3.6rem;
-        margin-top: 5rem;
-        text-align: center;
+  &__link {
+    font-size: 1.8rem;
+    color: $primary-color;
 
-        @media (max-width: $small) {
-            font-size: 1.8rem
-        }
+    @media (max-width: $small) {
+      font-size: 1.4rem;
     }
-
-    &_link {
-        font-size: 1.8rem;
-        color: $primary-color;
-
-        @media (max-width: $small) {
-            font-size: 1.4rem
-        }
-    }
+  }
 }

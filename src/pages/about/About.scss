@@ -1,10 +1,9 @@
 .about {
-    @include page-layout;
+  @include page-layout;
 
-    &_collapse_element {
-        @media (max-width: $small) {
-            width: 100%;
-        }
+  &__collapse__element {
+    @media (max-width: $small) {
+      width: 100%;
     }
+  }
 }
-

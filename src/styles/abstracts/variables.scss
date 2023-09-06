@@ -1,9 +1,14 @@
-$primary-color: #FF6060;
+$primary-color: #ff6060;
 $secondary-color: #000000;
-$tertiary-color: #FFFFFF;
-$bg-color: #F6F6F6;   // background-color
+$tertiary-color: #ffffff;
+$bg-color: #f6f6f6; // background-color
 
 $small: 699px;
 $medium: 1024px;
 
-$br: (small: 5px, medium: 10px, large: 25px, mixed: 0 0 10px 10px);   // border-radius
+$br: (
+  small: 5px,
+  medium: 10px,
+  large: 25px,
+  mixed: 0 0 10px 10px,
+); // border-radius

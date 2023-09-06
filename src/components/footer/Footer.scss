@@ -1,16 +1,17 @@
 @use "../../styles/abstracts/variables.scss";
 
 .footer {
-    text-align: center;
-    height: 209px;
-    background-color: $secondary-color;
-    margin-top: 2.5rem;
-    &_logo {
-        width: 122px;
-        height: 40px;
-        margin: 50px;
-    }
-    &_text {
-        color: $tertiary-color;
-    }
+  text-align: center;
+  height: 209px;
+  background-color: $secondary-color;
+  margin-top: 2.5rem;
+
+  &__logo {
+    width: 122px;
+    height: 40px;
+    margin: 50px;
+  }
+  &__text {
+    color: $tertiary-color;
+  }
 }

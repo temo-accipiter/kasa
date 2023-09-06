@@ -3,44 +3,44 @@
 .collapse {
   display: flex;
   flex-direction: column;
-  border-radius: map-get($br , medium);
+  border-radius: map-get($br, medium);
   animation: collapse-open 0.5s backwards;
 
-  &_header {
+  &__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px 10px 15px;
     height: 52px;
     background-color: $primary-color;
-    border-radius: map-get($br , small);
+    border-radius: map-get($br, small);
     font-size: 1.8rem;
     color: $tertiary-color;
 
     @media (max-width: $small) {
-      height: 30px; 
-      font-size: 1.3rem;  
+      height: 30px;
+      font-size: 1.3rem;
     }
   }
 
-  &_arrow {
+  &__arrow {
     transition: transform 0.5s ease-out;
     cursor: pointer;
 
-    @media (max-width: $small) { 
-      width: 2rem;  
+    @media (max-width: $small) {
+      width: 2rem;
       height: 2rem;
     }
-      
-    &-rotated {
+
+    &--rotated {
       transform: rotate(-180deg);
     }
   }
 
-  &_content {
+  &__content {
     background-color: $bg-color;
     color: $primary-color;
-    border-radius: map-get($br , mixed);
+    border-radius: map-get($br, mixed);
     max-height: 0;
     transition: all 0.5s ease-out;
     transform-origin: top;
@@ -51,14 +51,14 @@
       opacity: 1;
       transform: scaleY(1);
     }
-    
+
     &.close {
       transform: scaleY(0);
       opacity: 0;
     }
   }
 
-  &_container {
+  &__container {
     display: flex;
     flex-direction: column;
     max-width: 1023px;
@@ -66,7 +66,7 @@
     gap: 3rem;
   }
 
-  &_text {
+  &__text {
     margin: 0;
-  }  
+  }
 }

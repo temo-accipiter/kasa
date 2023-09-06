@@ -1,21 +1,20 @@
-@import 'abstracts/variables';
-@import 'abstracts/mixins';
-@import 'base/base';
-@import 'base/typography';
-@import 'animations/keyframes';
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "base/base";
+@import "base/typography";
+@import "animations/keyframes";
 
-@import '../app/app';
+@import "../app/app";
 
-@import '../components/header/header'; 
-@import '../components/footer/footer'; 
-@import '../components/card/card'; 
-@import '../components/banner/banner'; 
-@import '../components/star/starrating'; 
-@import '../components/collapse/collapse'; 
-@import '../components/slideshow/slideshow'; 
+@import "../components/header/header";
+@import "../components/footer/footer";
+@import "../components/card/card";
+@import "../components/banner/banner";
+@import "../components/star/starrating";
+@import "../components/collapse/collapse";
+@import "../components/slideshow/slideshow";
 
-@import '../pages/home/home'; 
-@import '../pages/about/about'; 
-@import '../pages/apart/apart'; 
-@import '../pages/errorpage/errorpage'; 
-
+@import "../pages/home/home";
+@import "../pages/about/about";
+@import "../pages/apart/apart";
+@import "../pages/errorpage/errorpage";
