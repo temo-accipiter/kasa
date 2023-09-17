@@ -11,7 +11,7 @@ export default function About() {
         <Banner image={landscapeBanner} alt="Paysage" />
 
         {/* Une div pour contenir les éléments Collapse. */}
-        <div className="about__collapse__container">
+        <section className="about__collapse__container">
           <Collapse title="Fiabilité">
             Les annonces postées sur Kasa garantissent une fiabilité totale. Les
             photos sont conformes aux logements, et toutes les informations sont
@@ -38,7 +38,7 @@ export default function About() {
             les standards sont bien respectés. Nous organisons également des
             ateliers sur la sécurité domestique pour nos hôtes.
           </Collapse>
-        </div>
+        </section>
       </div>
     </main>
   )

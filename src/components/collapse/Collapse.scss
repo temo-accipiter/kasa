@@ -1,10 +1,8 @@
-@use "../../styles/abstracts/variables.scss";
-
 .collapse {
   display: flex;
   flex-direction: column;
   border-radius: map-get($br, medium);
-  animation: collapse-open 0.5s backwards;
+  animation: collapse-open .5s;
 
   &__header {
     display: flex;
@@ -14,7 +12,6 @@
     height: 52px;
     background-color: $primary-color;
     border-radius: map-get($br, small);
-    font-size: 1.8rem;
     color: $tertiary-color;
 
     @media (max-width: $small) {
@@ -42,7 +39,7 @@
     color: $primary-color;
     border-radius: map-get($br, mixed);
     max-height: 0;
-    transition: all 0.5s ease-out;
+    transition: all .5s ease-out;
     transform-origin: top;
 
     &.open {

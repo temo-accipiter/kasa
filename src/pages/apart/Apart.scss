@@ -1,5 +1,3 @@
-@use "../../styles/abstracts/variables.scss";
-
 .apart {
   @include page-layout;
 
@@ -25,7 +23,6 @@
 
     &__title {
       color: $primary-color;
-      font-size: 3.6rem;
       margin: 0;
 
       @media (max-width: $small) {
@@ -35,8 +32,6 @@
 
     &__location {
       color: $primary-color;
-      font-size: 1.8rem;
-      margin: 0;
 
       @media (max-width: $small) {
         font-size: 1.4rem;
@@ -91,8 +86,6 @@
     &__name {
       color: $primary-color;
       max-width: 87px;
-      font-size: 1.8rem;
-      margin: 0;
 
       @media (max-width: $small) {
         font-size: 1.2rem;
@@ -121,10 +114,6 @@
 
       @media (max-width: $small) {
         width: 100%;
-      }
-
-      & ul {
-        list-style-type: none;
       }
     }
 

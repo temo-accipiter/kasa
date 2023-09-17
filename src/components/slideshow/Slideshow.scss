@@ -1,5 +1,3 @@
-@use "../../styles/abstracts/variables.scss";
-
 .slideshow {
   height: 415px;
   border-radius: map-get($br, large);
@@ -11,8 +9,8 @@
     background-color: transparent;
     cursor: pointer;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 50%;   // Placer l'element 50% de la hauteur de son conteneur parent
+    transform: translateY(-50%);   // Centrer verticalement par rapport à son conteneur parent
     z-index: 1;
 
     & img {
@@ -48,7 +46,7 @@
     bottom: 5%;
     transform: translateX(
       -50%
-    ); // Pour déplacer l'element horizontalement de moitié de sa propre largeur vers la gauche, sans cette transformation,le centre de l'élément serait aligné avec le bord gauche du conteneur parent
+    ); // Centrer horizontalement par rapport à son conteneur parent
     font-size: 1.8rem;
     color: $tertiary-color;
     z-index: 0;

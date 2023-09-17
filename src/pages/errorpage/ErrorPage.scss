@@ -10,7 +10,6 @@
     font-size: 288px; /* Taille de police initiale à 288px */
     font-weight: 700;
     margin: 0;
-    transition: font-size 50ms; /* Ajoute une transition pour une animation en douceur */
 
     // Ajout de média pour ajuster la taille de police en pourcentage de la largeur du conteneur
     @media (max-width: $medium) {
@@ -19,13 +18,9 @@
   }
 
   &__subtitle {
-    font-size: 3.6rem;
     margin-top: 5rem;
     text-align: center;
 
-    @media (max-width: $small) {
-      font-size: 1.8rem;
-    }
   }
 
   &__link {
