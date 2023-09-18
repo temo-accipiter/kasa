@@ -1,5 +1,6 @@
 import "../../styles/main.scss"
 import { useState } from "react"
+import PropTypes from "prop-types"
 import arrowIcon from "../../assets/fleche.png"
 
 export default function Collapse({ title, children }) {
@@ -30,3 +31,9 @@ export default function Collapse({ title, children }) {
     </div>
   )
 }
+
+// Définition des types de données attendus pour les props
+Collapse.propTypes = {
+  title: PropTypes.string.isRequired, // title doit être une chaîne de caractères requise
+  children: PropTypes.node.isRequired, // children doit être un nœud (élément React) requis
+};

@@ -1,5 +1,6 @@
 import "../../styles/main.scss"
 import { useState } from "react"
+import PropTypes from "prop-types"
 import leftArrowImage from "../../assets/arrowleft.png"
 import rightArrowImage from "../../assets/arrowright.png"
 
@@ -60,3 +61,8 @@ export default function Slideshow({ images }) {
     </div>
   )
 }
+
+Slideshow.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+}
+
