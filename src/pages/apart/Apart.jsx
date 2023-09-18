@@ -6,7 +6,7 @@ import Collapse from "../../components/collapse/Collapse"
 import Slideshow from "../../components/slideshow/SlideShow" // Importez le composant Slideshow
 
 export default function Apart() {
-  const { id } = useParams()
+  const { id } = useParams() // extraction de la paramètre de l'URL
 
   // Recherche des données du logement en fonction de l'ID
   const logement = logements.find((item) => item.id === id)
