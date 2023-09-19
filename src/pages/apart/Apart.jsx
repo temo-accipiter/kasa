@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import logements from "../../data/logements.json"
 import StarRating from "../../components/star/StarRating"
 import Collapse from "../../components/collapse/Collapse"
-import Slideshow from "../../components/slideshow/SlideShow" // Importez le composant Slideshow
+import Slideshow from "../../components/slideshow/SlideSho" // Importez le composant Slideshow
 
 export default function Apart() {
   const { id } = useParams() // extraction de la paramètre de l'URL
