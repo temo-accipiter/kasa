@@ -20,32 +20,35 @@ export default function Apart() {
   }
 
   return (
-    <main className="apart">
+    <main className="apart" id="main-content">
       <div className="apart__container">
         <Slideshow images={logement.pictures} />
 
         <article className="apart__content">
           <section className="apart__content__1">
-            <h2 className="apart__content__title">{logement.title}</h2>
-            <h3 className="apart__content__location">{logement.location}</h3>
+            <h1 className="apart__content__title">{logement.title}</h1>
+            <p className="apart__content__location">{logement.location}</p>
 
-            <div className="apart__content__tags">
+            <ul
+              className="apart__content__tags"
+              aria-label="Caractéristiques du logement"
+            >
               {/* Utilisation d'une boucle pour afficher les tags */}
               {logement.tags.map((tags, index) => (
-                <div key={`${tags}-${index}`} className="apart__content__tag">
+                <li key={`${tags}-${index}`} className="apart__content__tag">
                   {tags}
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
 
           <section className="apart__content__2">
             {/* photo et nom de host */}
             <div className="apart__host">
-              <h3 className="apart__host__name">{logement.host.name}</h3>
+              <p className="apart__host__name">{logement.host.name}</p>
               <img
                 src={logement.host.picture}
-                alt="host"
+                alt={logement.host.name}
                 className="apart__host__img"
               />
             </div>
@@ -60,9 +63,11 @@ export default function Apart() {
 
           <div className="apart__collapse__element">
             <Collapse title="Équipements">
-              {logement.equipments.map((equipments, index) => (
-                <div key={`${equipments}-${index}`}>{equipments}</div>
-              ))}
+              <ul>
+                {logement.equipments.map((equipments, index) => (
+                  <li key={`${equipments}-${index}`}>{equipments}</li>
+                ))}
+              </ul>
             </Collapse>
           </div>
         </div>

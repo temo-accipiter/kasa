@@ -5,16 +5,18 @@ import logo from "../../assets/LOGO.png"
 export default function Header() {
   return (
     <header className="header">
-      <main className="header__container">
-        <NavLink to="/">
-          <img src={logo} alt="Logo" />
+      <div className="header__container">
+        <NavLink to="/" aria-label="Retour à l'accueil">
+          <img src={logo} alt="Kasa, location d'appartements" />
         </NavLink>
 
-        <nav className="header__nav">
-          <NavLink to="/">Accueil</NavLink>
+        <nav className="header__nav" aria-label="Navigation principale">
+          <NavLink to="/" end>
+            Accueil
+          </NavLink>
           <NavLink to="/about">A propos</NavLink>
         </nav>
-      </main>
+      </div>
     </header>
   )
 }

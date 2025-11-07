@@ -3,16 +3,16 @@ import { Link } from "react-router-dom"
 
 export default function ErrorPage() {
   return (
-    <div className="errorpage">
+    <main className="errorpage" id="main-content" role="main">
       <div className="errorpage__container">
         <h1 className="errorpage__title">404</h1>
-        <h2 className="errorpage__subtitle">
+        <p className="errorpage__subtitle">
           Oups! La page que vous demandez n'existe pas.
-        </h2>
+        </p>
         <Link to="/" className="errorpage__link">
-          Retourner sur la page d’accueil
+          Retourner sur la page d'accueil
         </Link>
       </div>
-    </div>
+    </main>
   )
 }

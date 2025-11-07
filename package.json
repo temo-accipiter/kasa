@@ -26,7 +26,8 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss,md}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,scss,md}\"",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "audit:a11y": "node scripts/audit-simple.js"
   },
   "browserslist": {
     "production": [
@@ -41,6 +42,8 @@
     ]
   },
   "devDependencies": {
+    "@axe-core/react": "^4.11.0",
+    "@lhci/cli": "^0.15.1",
     "@storybook/addon-essentials": "^8.6.14",
     "@storybook/addon-interactions": "^8.6.14",
     "@storybook/addon-links": "^8.6.14",
@@ -65,13 +68,16 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-storybook": "^10.0.6",
+    "finalhandler": "^2.1.0",
     "husky": "^9.1.7",
     "imagemin": "^9.0.1",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^10.0.0",
+    "lighthouse": "^13.0.1",
     "lint-staged": "^16.2.6",
     "prettier": "3.0.3",
     "sass-loader": "^13.3.3",
+    "serve-static": "^2.2.0",
     "sharp": "^0.34.5",
     "storybook": "^8.6.14",
     "typescript": "^5.9.3"

@@ -6,6 +6,9 @@ import { Outlet } from "react-router-dom"
 export default function App() {
   return (
     <>
+      <a href="#main-content" className="skip-link">
+        Aller au contenu principal
+      </a>
       <Header />
       <Outlet />
       <Footer />
