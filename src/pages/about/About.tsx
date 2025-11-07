@@ -5,10 +5,10 @@ import Collapse from "../../components/collapse/Collapse"
 
 export default function About() {
   return (
-    <main className="about">
+    <main className="about" id="main-content">
       <div className="about__container">
         {/* Utilisation du composant Banner avec une image de paysage */}
-        <Banner image={landscapeBanner} alt="Paysage" />
+        <Banner image={landscapeBanner} alt="Paysage de montagne" />
 
         {/* Une div pour contenir les éléments Collapse. */}
         <section className="about__collapse__container">

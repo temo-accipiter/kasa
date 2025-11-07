@@ -10,7 +10,7 @@ const logements: Logement[] = logementsData
 export default function Home() {
   return (
     // La fonction Home renvoie un élément main avec la classe home, servant comme conteneur principal pour la page d'accueil
-    <main className="home">
+    <main className="home" id="main-content">
       <div className="home__container">
         <Banner
           image={coastBanner}
@@ -18,7 +18,10 @@ export default function Home() {
           text="Chez vous, partout et ailleurs"
         />
 
-        <section className="home__card__container">
+        <section
+          className="home__card__container"
+          aria-label="Liste des logements disponibles"
+        >
           {/* Utilisation de la méthode map pour créer des éléments Card pour chaque logement */}
           {logements.map((item) => (
             <Card key={item.id} item={item} /> // Appel au composant Card avec les données du logement et une clé unique basée sur l'ID du logement

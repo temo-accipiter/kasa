@@ -4,6 +4,13 @@ import * as ReactDOM from "react-dom/client"
 import { createBrowserRouter, RouterProvider } from "react-router-dom" // Importation des composants pour la gestion de routes
 import App from "./App"
 
+// Configuration axe-core pour l'audit d'accessibilité en développement
+if (process.env.NODE_ENV !== "production") {
+  import("@axe-core/react").then((axe) => {
+    axe.default(React, ReactDOM, 1000)
+  })
+}
+
 // Code-splitting: Lazy load des pages pour réduire la taille du bundle initial
 const Home = React.lazy(() => import("./pages/home/Home"))
 const ErrorPage = React.lazy(() => import("./pages/errorpage/ErrorPage"))

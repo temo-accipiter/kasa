@@ -11,9 +11,18 @@ export default function StarRating({ rating }: StarRatingProps) {
       key={`star-${index}`}
       // Utilisation de l'étoile active ou inactive en fonction de l'index et de la note
       src={index < ratingNumber ? starActive : starInactive}
-      alt="star"
+      alt=""
+      role="presentation"
     />
   ))
 
-  return <div className="star--rating">{stars}</div>
+  return (
+    <div
+      className="star--rating"
+      role="img"
+      aria-label={`Note: ${rating} sur 5 étoiles`}
+    >
+      {stars}
+    </div>
+  )
 }

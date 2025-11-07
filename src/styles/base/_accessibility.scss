@@ -1,0 +1,42 @@
+// Classe pour masquer visuellement du contenu mais le garder accessible aux lecteurs d'écran
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// Skip link pour navigation clavier
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color, #ff6060);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+  font-weight: 600;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+// Amélioration de la visibilité du focus pour tous les éléments interactifs
+*:focus-visible {
+  outline: 3px solid #ff6060;
+  outline-offset: 2px;
+}
+
+// Pour les boutons et liens
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #ff6060;
+  outline-offset: 2px;
+}

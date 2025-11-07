@@ -47,6 +47,9 @@
       gap: $spacing-sm;
       margin-top: $spacing-lg;
       flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+      margin-left: 0;
     }
 
     &__tag {
@@ -57,6 +60,7 @@
       border: none;
       border-radius: var(--border-radius-md);
       white-space: nowrap;
+      list-style: none;
 
       @include mobile {
         font-size: $font-size-xs;
