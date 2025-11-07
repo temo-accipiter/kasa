@@ -5,7 +5,7 @@ import Card from "../../components/card/Card" // Importation du composant Card
 import logementsData from "../../lib/data/logements.json" // Importation des données de logement depuis le fichier JSON
 import { Logement } from "../../types"
 
-const logements: Logement[] = logementsData;
+const logements: Logement[] = logementsData
 
 export default function Home() {
   return (

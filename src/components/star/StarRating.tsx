@@ -4,7 +4,7 @@ import starActive from "../../assets/star-active.png"
 import { StarRatingProps } from "../../types"
 
 export default function StarRating({ rating }: StarRatingProps) {
-  const ratingNumber = parseInt(rating, 10);
+  const ratingNumber = parseInt(rating, 10)
   // Création d'un tableau d'étoiles en fonction de la note reçue
   const stars = Array.from({ length: 5 }, (_, index) => (
     <img

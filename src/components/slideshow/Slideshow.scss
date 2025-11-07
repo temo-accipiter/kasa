@@ -9,8 +9,10 @@
     background-color: transparent;
     cursor: pointer;
     position: absolute;
-    top: 50%;   // Placer l'element 50% de la hauteur de son conteneur parent
-    transform: translateY(-50%);   // Centrer verticalement par rapport à son conteneur parent
+    top: 50%; // Placer l'element 50% de la hauteur de son conteneur parent
+    transform: translateY(
+      -50%
+    ); // Centrer verticalement par rapport à son conteneur parent
     z-index: 1;
 
     & img {

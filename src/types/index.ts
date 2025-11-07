@@ -1,40 +1,40 @@
 export interface Host {
-  name: string;
-  picture: string;
+  name: string
+  picture: string
 }
 
 export interface Logement {
-  id: string;
-  title: string;
-  cover: string;
-  pictures: string[];
-  description: string;
-  host: Host;
-  rating: string;
-  location: string;
-  equipments: string[];
-  tags: string[];
+  id: string
+  title: string
+  cover: string
+  pictures: string[]
+  description: string
+  host: Host
+  rating: string
+  location: string
+  equipments: string[]
+  tags: string[]
 }
 
 export interface BannerProps {
-  image: string;
-  alt: string;
-  text?: string;
+  image: string
+  alt: string
+  text?: string
 }
 
 export interface CardProps {
-  item: Logement;
+  item: Logement
 }
 
 export interface CollapseProps {
-  title: string;
-  children: React.ReactNode;
+  title: string
+  children: React.ReactNode
 }
 
 export interface SlideshowProps {
-  images: string[];
+  images: string[]
 }
 
 export interface StarRatingProps {
-  rating: string;
+  rating: string
 }

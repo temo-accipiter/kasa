@@ -34,8 +34,8 @@ const router = createBrowserRouter([
 ])
 
 // ReactDOM.createRoot pour Rendre l'application React dans l'élément ayant l'ID "root" de la page HTML
-const rootElement = document.getElementById("root");
-if (!rootElement) throw new Error("Failed to find the root element");
+const rootElement = document.getElementById("root")
+if (!rootElement) throw new Error("Failed to find the root element")
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />
