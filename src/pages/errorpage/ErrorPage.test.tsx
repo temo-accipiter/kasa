@@ -4,13 +4,14 @@ import ErrorPage from './ErrorPage'
 
 describe('ErrorPage Component', () => {
   it('renders the error page', () => {
-    render(
+    const { container } = render(
       <BrowserRouter>
         <ErrorPage />
       </BrowserRouter>,
     )
 
-    const errorPage = document.querySelector('.errorpage')
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    const errorPage = container.querySelector('.errorpage')
     expect(errorPage).toBeInTheDocument()
   })
 
@@ -39,32 +40,35 @@ describe('ErrorPage Component', () => {
   })
 
   it('displays link to home page', () => {
-    render(
+    const { container } = render(
       <BrowserRouter>
         <ErrorPage />
       </BrowserRouter>,
     )
 
-    const homeLink = document.querySelector('.errorpage__link')
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    const homeLink = container.querySelector('.errorpage__link')
     expect(homeLink).toBeInTheDocument()
     expect(homeLink).toHaveAttribute('href', '/')
     expect(homeLink?.textContent).toContain('Retourner')
   })
 
   it('has correct CSS classes', () => {
-    render(
+    const { container } = render(
       <BrowserRouter>
         <ErrorPage />
       </BrowserRouter>,
     )
 
-    const errorPage = document.querySelector('.errorpage')
-    const container = document.querySelector('.errorpage__container')
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    const errorPage = container.querySelector('.errorpage')
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    const errorPageContainer = container.querySelector('.errorpage__container')
     const title = screen.getByRole('heading', { level: 1 })
     const subtitle = screen.getByRole('heading', { level: 2 })
 
     expect(errorPage).toHaveClass('errorpage')
-    expect(container).toHaveClass('errorpage__container')
+    expect(errorPageContainer).toHaveClass('errorpage__container')
     expect(title).toHaveClass('errorpage__title')
     expect(subtitle).toHaveClass('errorpage__subtitle')
   })

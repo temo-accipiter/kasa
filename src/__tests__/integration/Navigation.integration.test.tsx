@@ -124,13 +124,14 @@ describe('Navigation Integration Tests', () => {
     const user = userEvent.setup()
     const router = setupRouter('/unknown-route')
 
-    render(<RouterProvider router={router} />)
+    const { container } = render(<RouterProvider router={router} />)
 
     // Vérifier qu'on est sur la page d'erreur
     expect(screen.getByText('404')).toBeInTheDocument()
 
     // Cliquer sur le lien de retour à l'accueil
-    const homeLink = document.querySelector('.errorpage__link')
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    const homeLink = container.querySelector('.errorpage__link')
     expect(homeLink).toBeInTheDocument()
     await user.click(homeLink!)
 

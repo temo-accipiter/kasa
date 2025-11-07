@@ -71,13 +71,14 @@ describe('Home Page', () => {
   })
 
   it('renders the cards container', () => {
-    render(
+    const { container } = render(
       <BrowserRouter>
         <Home />
       </BrowserRouter>,
     )
 
-    const cardsContainer = document.querySelector('.home__card__container')
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    const cardsContainer = container.querySelector('.home__card__container')
     expect(cardsContainer).toBeInTheDocument()
   })
 

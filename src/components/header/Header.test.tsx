@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import Header from './Header'
 
@@ -61,7 +61,10 @@ describe('Header Component', () => {
     )
 
     const logoLinks = screen.getAllByRole('link')
-    const logoLink = logoLinks.find((link) => link.querySelector('img'))
+    const logoLink = logoLinks.find((link) => {
+      const { queryByRole } = within(link)
+      return queryByRole('img')
+    })
 
     expect(logoLink).toHaveAttribute('href', '/')
   })
