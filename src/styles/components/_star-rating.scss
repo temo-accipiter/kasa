@@ -1,0 +1,32 @@
+// ============================================
+// STAR RATING - Composant notation étoiles
+// ============================================
+
+@use "../abstracts" as *;
+
+.star--rating {
+  display: flex;
+  max-width: 200px;
+  gap: $spacing-xs;
+
+  @include mobile {
+    width: 15px;
+    height: 15px;
+  }
+
+  & svg,
+  & img {
+    width: 24px;
+    height: 24px;
+    transition: transform var(--transition-fast) $transition-ease;
+
+    @include mobile {
+      width: 15px;
+      height: 15px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

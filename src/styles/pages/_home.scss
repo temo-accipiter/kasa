@@ -1,0 +1,32 @@
+// ============================================
+// HOME PAGE - Page d'accueil
+// ============================================
+
+@use "../abstracts" as *;
+
+.home {
+  @include page-layout;
+
+  &__card__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: $container-max-width;
+    padding: $spacing-4xl;
+    background-color: var(--color-background);
+    gap: $spacing-4xl;
+    border-radius: var(--border-radius-xl);
+
+    @include respond-below($breakpoint-lg) {
+      grid-template-columns: repeat(2, 1fr);
+      padding: $spacing-2xl;
+      gap: $spacing-3xl;
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      padding: 0;
+      gap: $spacing-lg;
+      background-color: transparent;
+    }
+  }
+}

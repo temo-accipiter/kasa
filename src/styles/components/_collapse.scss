@@ -1,0 +1,68 @@
+// ============================================
+// COLLAPSE - Composant accordéon
+// ============================================
+
+@use "../abstracts" as *;
+
+.collapse {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius-md);
+  animation: collapse-open $transition-slow $transition-ease;
+
+  &__header {
+    @include flex-between;
+    padding: 10px 20px 10px 15px;
+    height: 52px;
+    background-color: var(--color-primary);
+    border-radius: var(--border-radius-sm);
+    color: var(--color-text-inverse);
+    cursor: pointer;
+    transition: opacity var(--transition-base) $transition-ease;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    @include mobile {
+      height: 30px;
+      font-size: $font-size-sm;
+    }
+  }
+
+  &__arrow {
+    transition: transform $transition-slow ease-out;
+    cursor: pointer;
+
+    @include mobile {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    &--rotated {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &__content {
+    background-color: var(--color-gray-light);
+    color: var(--color-primary);
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+    max-height: 0;
+    overflow: hidden;
+    transition: all $transition-slow ease-out;
+    transform-origin: top;
+
+    &.open {
+      max-height: 1000px;
+      padding: $spacing-sm $spacing-lg;
+      opacity: 1;
+      transform: scaleY(1);
+    }
+
+    &.close {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+  }
+}

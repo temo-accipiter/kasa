@@ -1,0 +1,86 @@
+// ============================================
+// THEME SYSTEM - Light/Dark Mode
+// ============================================
+// Utilise CSS Custom Properties pour un switching dynamique
+
+@use "../abstracts/variables" as *;
+
+// ============================================
+// CSS CUSTOM PROPERTIES
+// ============================================
+
+:root {
+  // Colors - Light Theme (default)
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-tertiary: #{$color-tertiary};
+  --color-background: #{$color-background};
+  --color-text: #{$color-text-dark};
+  --color-text-inverse: #{$color-text-light};
+  --color-surface: #{$color-tertiary};
+  --color-border: #{$color-gray-medium};
+
+  // Gradients
+  --gradient-overlay: #{$gradient-overlay-light};
+
+  // Shadows
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+
+  // Spacing
+  --spacing-xs: #{$spacing-xs};
+  --spacing-sm: #{$spacing-sm};
+  --spacing-md: #{$spacing-md};
+  --spacing-lg: #{$spacing-lg};
+  --spacing-xl: #{$spacing-xl};
+  --spacing-2xl: #{$spacing-2xl};
+  --spacing-3xl: #{$spacing-3xl};
+  --spacing-4xl: #{$spacing-4xl};
+
+  // Typography
+  --font-family: #{$font-family-base};
+  --font-size-base: #{$font-size-base};
+
+  // Border radius
+  --border-radius-sm: #{$border-radius-sm};
+  --border-radius-md: #{$border-radius-md};
+  --border-radius-lg: #{$border-radius-lg};
+  --border-radius-xl: #{$border-radius-xl};
+
+  // Transitions
+  --transition-fast: #{$transition-fast};
+  --transition-base: #{$transition-base};
+  --transition-slow: #{$transition-slow};
+}
+
+// ============================================
+// DARK THEME
+// ============================================
+
+[data-theme="dark"] {
+  --color-background: #1a1a1a;
+  --color-text: #{$color-text-light};
+  --color-text-inverse: #{$color-text-dark};
+  --color-surface: #2a2a2a;
+  --color-border: #444444;
+  --gradient-overlay: #{$gradient-overlay-dark};
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+// Support pour prefers-color-scheme
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-background: #1a1a1a;
+    --color-text: #{$color-text-light};
+    --color-text-inverse: #{$color-text-dark};
+    --color-surface: #2a2a2a;
+    --color-border: #444444;
+    --gradient-overlay: #{$gradient-overlay-dark};
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.7);
+  }
+}

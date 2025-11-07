@@ -1,0 +1,69 @@
+// ============================================
+// SLIDESHOW - Composant carrousel
+// ============================================
+
+@use "../abstracts" as *;
+
+.slideshow {
+  height: 415px;
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  position: relative;
+
+  @include mobile {
+    height: 255px;
+  }
+
+  &__arrow {
+    @include reset-button;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    transition: transform var(--transition-base) $transition-ease;
+
+    &:hover {
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+
+      @include mobile {
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+
+    &--left {
+      left: 15px;
+    }
+
+    &--right {
+      right: 15px;
+    }
+  }
+
+  &__image {
+    @include absolute-cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  &__number {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+    font-size: $font-size-md;
+    color: var(--color-text-inverse);
+    z-index: 0;
+
+    @include mobile {
+      display: none;
+    }
+  }
+}

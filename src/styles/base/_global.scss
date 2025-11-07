@@ -1,0 +1,165 @@
+// ============================================
+// GLOBAL - Styles globaux de l'application
+// ============================================
+
+@use "../abstracts" as *;
+
+// ============================================
+// ROOT & BODY
+// ============================================
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  max-width: $container-max-width-large;
+  margin: 0 auto;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+// ============================================
+// MAIN CONTENT
+// ============================================
+
+main {
+  flex: 1;
+  width: 100%;
+}
+
+// ============================================
+// CONTAINER
+// ============================================
+
+.container {
+  @include container;
+}
+
+// ============================================
+// UTILITY CLASSES
+// ============================================
+
+// Display utilities
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-grid {
+  display: grid;
+}
+
+// Flex utilities
+.flex-center {
+  @include flex-center;
+}
+
+.flex-between {
+  @include flex-between;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+// Spacing utilities
+@each $name,
+  $value
+    in (
+      "xs": $spacing-xs,
+      "sm": $spacing-sm,
+      "md": $spacing-md,
+      "lg": $spacing-lg,
+      "xl": $spacing-xl,
+      "2xl": $spacing-2xl,
+      "3xl": $spacing-3xl,
+      "4xl": $spacing-4xl
+    )
+{
+  .mt-#{$name} {
+    margin-top: $value;
+  }
+
+  .mb-#{$name} {
+    margin-bottom: $value;
+  }
+
+  .ml-#{$name} {
+    margin-left: $value;
+  }
+
+  .mr-#{$name} {
+    margin-right: $value;
+  }
+
+  .mx-#{$name} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+
+  .my-#{$name} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+
+  .pt-#{$name} {
+    padding-top: $value;
+  }
+
+  .pb-#{$name} {
+    padding-bottom: $value;
+  }
+
+  .pl-#{$name} {
+    padding-left: $value;
+  }
+
+  .pr-#{$name} {
+    padding-right: $value;
+  }
+
+  .px-#{$name} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+
+  .py-#{$name} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+}
+
+// Visibility utilities
+.visually-hidden {
+  @include visually-hidden;
+}
+
+// Accessibility
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  padding: $spacing-sm $spacing-md;
+  text-decoration: none;
+  z-index: 100;
+
+  &:focus {
+    top: 0;
+  }
+}

@@ -1,0 +1,60 @@
+// ============================================
+// HEADER - Layout header
+// ============================================
+
+@use "../abstracts" as *;
+
+.header {
+  padding: $spacing-2xl $spacing-lg;
+
+  @include mobile {
+    padding: 0 $spacing-lg;
+  }
+
+  &__container {
+    @include flex-between;
+    max-width: $container-max-width;
+    height: $header-height;
+    margin: auto;
+    gap: $spacing-lg;
+
+    @include mobile {
+      & img {
+        width: 120px;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    width: 265px;
+    font-size: $font-size-lg;
+    gap: $spacing-sm;
+
+    @include mobile {
+      max-width: 200px;
+      font-size: $font-size-sm;
+    }
+  }
+
+  & a {
+    @include reset-link;
+    color: var(--color-primary);
+    transition: opacity var(--transition-base) $transition-ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    @include mobile {
+      text-transform: uppercase;
+    }
+
+    &.active {
+      text-decoration: underline;
+    }
+
+    @include focus-visible;
+  }
+}

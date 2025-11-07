@@ -1,0 +1,85 @@
+// ============================================
+// FUNCTIONS - Utilitaires de calcul
+// ============================================
+
+@use "sass:math";
+@use "sass:map";
+@use "variables" as *;
+
+// ============================================
+// SPACING FUNCTIONS
+// ============================================
+
+// Convertir px en rem
+@function px-to-rem($px) {
+  @return math.div($px, 16) * 1rem;
+}
+
+// Multiplier un espacement
+@function spacing($multiplier) {
+  @return $spacing-sm * $multiplier;
+}
+
+// ============================================
+// COLOR FUNCTIONS
+// ============================================
+
+// Obtenir une couleur depuis un map (legacy support)
+@function get-color($color-name) {
+  $colors: (
+    "primary": $color-primary,
+    "secondary": $color-secondary,
+    "tertiary": $color-tertiary,
+    "background": $color-background,
+  );
+
+  @return map.get($colors, $color-name);
+}
+
+// ============================================
+// BREAKPOINT FUNCTIONS
+// ============================================
+
+@function get-breakpoint($name) {
+  $breakpoints: (
+    "xs": $breakpoint-xs,
+    "sm": $breakpoint-sm,
+    "md": $breakpoint-md,
+    "lg": $breakpoint-lg,
+    "xl": $breakpoint-xl,
+    "2xl": $breakpoint-2xl,
+  );
+
+  @return map.get($breakpoints, $name);
+}
+
+// ============================================
+// BORDER RADIUS FUNCTIONS
+// ============================================
+
+@function get-radius($size) {
+  $radiuses: (
+    "sm": $border-radius-sm,
+    "md": $border-radius-md,
+    "lg": $border-radius-lg,
+    "xl": $border-radius-xl,
+    "round": $border-radius-round,
+  );
+
+  @return map.get($radiuses, $size);
+}
+
+// ============================================
+// Z-INDEX FUNCTION
+// ============================================
+
+@function z-index($layer) {
+  $z-indexes: (
+    "dropdown": $z-index-dropdown,
+    "modal": $z-index-modal,
+    "overlay": $z-index-overlay,
+    "tooltip": $z-index-tooltip,
+  );
+
+  @return map.get($z-indexes, $layer);
+}

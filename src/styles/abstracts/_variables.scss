@@ -1,0 +1,136 @@
+// ============================================
+// VARIABLES - KASA PROJECT
+// ============================================
+// Système de design tokens centralisé
+// Utilise les CSS Custom Properties pour le theming
+
+// ============================================
+// COLORS - Palette principale
+// ============================================
+$color-primary: #ff6060;
+$color-secondary: #000000;
+$color-tertiary: #ffffff;
+$color-background: #f6f6f6;
+$color-text-dark: #000000;
+$color-text-light: #ffffff;
+$color-gray-light: #f6f6f6;
+$color-gray-medium: #e3e3e3;
+$color-gray-dark: #333333;
+
+// ============================================
+// SPACING - Système d'espacement cohérent
+// ============================================
+$spacing-xs: 0.5rem; // 5px
+$spacing-sm: 1rem; // 10px
+$spacing-md: 1.5rem; // 15px
+$spacing-lg: 2rem; // 20px
+$spacing-xl: 2.5rem; // 25px
+$spacing-2xl: 3rem; // 30px
+$spacing-3xl: 4rem; // 40px
+$spacing-4xl: 5rem; // 50px
+
+// ============================================
+// TYPOGRAPHY - Tailles de police
+// ============================================
+$font-family-base: "Montserrat", sans-serif;
+
+$font-size-xs: 1.2rem; // 12px
+$font-size-sm: 1.4rem; // 14px
+$font-size-base: 1.6rem; // 16px
+$font-size-md: 1.8rem; // 18px
+$font-size-lg: 2.2rem; // 22px
+$font-size-xl: 2.4rem; // 24px
+$font-size-2xl: 3rem; // 30px
+$font-size-3xl: 3.6rem; // 36px
+$font-size-4xl: 4.8rem; // 48px
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.8;
+
+// ============================================
+// BREAKPOINTS - Responsive design
+// ============================================
+$breakpoint-xs: 375px;
+$breakpoint-sm: 699px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1240px;
+$breakpoint-2xl: 1440px;
+
+// ============================================
+// BORDER RADIUS - Arrondis
+// ============================================
+$border-radius-sm: 5px;
+$border-radius-md: 10px;
+$border-radius-lg: 15px;
+$border-radius-xl: 25px;
+$border-radius-round: 50%;
+
+// Map pour compatibilité legacy
+$br: (
+  small: $border-radius-sm,
+  medium: $border-radius-md,
+  large: $border-radius-xl,
+  mixed: 0 0 10px 10px,
+);
+
+// ============================================
+// SHADOWS - Ombres
+// ============================================
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.15);
+$shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.2);
+$shadow-xl: 0 15px 30px rgba(0, 0, 0, 0.25);
+
+// ============================================
+// TRANSITIONS - Animations
+// ============================================
+$transition-fast: 150ms;
+$transition-base: 300ms;
+$transition-slow: 500ms;
+$transition-ease: ease-in-out;
+
+// ============================================
+// Z-INDEX - Gestion des couches
+// ============================================
+$z-index-dropdown: 100;
+$z-index-modal: 200;
+$z-index-overlay: 300;
+$z-index-tooltip: 400;
+
+// ============================================
+// LAYOUT - Contraintes de mise en page
+// ============================================
+$container-max-width: 1240px;
+$container-max-width-large: 1440px;
+$header-height: 68px;
+
+// ============================================
+// GRADIENTS - Dégradés
+// ============================================
+$gradient-overlay-light: linear-gradient(
+  180deg,
+  rgba(255, 255, 255, 0) 0%,
+  rgba(0, 0, 0, 0.5) 100%
+);
+$gradient-overlay-dark: linear-gradient(
+  180deg,
+  rgba(255, 255, 255, 0) 0%,
+  rgba(0, 0, 0, 0.7) 100%
+);
+
+// ============================================
+// LEGACY COMPATIBILITY
+// ============================================
+// Variables pour compatibilité avec l'ancien code
+$primary-color: $color-primary;
+$secondary-color: $color-secondary;
+$tertiary-color: $color-tertiary;
+$bg-color: $color-background;
+$small: $breakpoint-sm;
+$medium: $breakpoint-lg;

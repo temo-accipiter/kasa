@@ -1,0 +1,57 @@
+// ============================================
+// ERROR PAGE - Page 404
+// ============================================
+
+@use "../abstracts" as *;
+
+.errorpage {
+  @include page-layout;
+
+  &__container {
+    align-items: center;
+    color: var(--color-primary);
+  }
+
+  &__title {
+    font-size: 288px;
+    font-weight: $font-weight-bold;
+    margin: 0;
+    text-align: center;
+
+    @include respond-below($breakpoint-lg) {
+      font-size: 23.2vw;
+    }
+
+    @include mobile {
+      font-size: 96px;
+    }
+  }
+
+  &__subtitle {
+    margin-top: $spacing-4xl;
+    text-align: center;
+    font-size: $font-size-xl;
+
+    @include mobile {
+      font-size: $font-size-md;
+      padding: 0 $spacing-lg;
+    }
+  }
+
+  &__link {
+    font-size: $font-size-md;
+    color: var(--color-primary);
+    display: block;
+    text-align: center;
+    margin-top: $spacing-4xl;
+    text-decoration: underline;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    @include mobile {
+      font-size: $font-size-sm;
+    }
+  }
+}

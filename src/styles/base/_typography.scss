@@ -1,0 +1,133 @@
+// ============================================
+// TYPOGRAPHY - Styles typographiques
+// ============================================
+
+@use "../abstracts" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap");
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: $font-weight-medium;
+  color: var(--color-text);
+  line-height: $line-height-normal;
+}
+
+// ============================================
+// HEADINGS
+// ============================================
+
+h1 {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+
+  @include mobile {
+    font-size: $font-size-3xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-normal;
+  margin: 0;
+}
+
+h4 {
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-normal;
+}
+
+h5 {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-normal;
+}
+
+h6 {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-normal;
+}
+
+// ============================================
+// TEXT ELEMENTS
+// ============================================
+
+p {
+  margin-bottom: $spacing-md;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: opacity var(--transition-fast) ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+strong,
+b {
+  font-weight: $font-weight-bold;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+small {
+  font-size: $font-size-sm;
+}
+
+// ============================================
+// UTILITY CLASSES
+// ============================================
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+
+.text-truncate {
+  @include text-truncate;
+}
