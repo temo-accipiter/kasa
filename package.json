@@ -9,12 +9,13 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
-    "sass": "^1.66.1",
-    "web-vitals": "^2.1.0"
+    "sass": "^1.66.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:analyze": "source-map-explorer 'build/static/js/*.js'",
+    "optimize:images": "node scripts/optimize-images.js",
     "test": "react-scripts test",
     "test:coverage": "react-scripts test --coverage --watchAll=false",
     "test:ci": "CI=true react-scripts test --coverage",
@@ -63,10 +64,15 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-storybook": "^10.0.6",
     "husky": "^9.1.7",
+    "imagemin": "^9.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
     "lint-staged": "^16.2.6",
     "prettier": "3.0.3",
     "sass-loader": "^13.3.3",
+    "sharp": "^0.34.5",
     "storybook": "^8.6.14",
     "typescript": "^5.9.3"
   },

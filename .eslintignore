@@ -6,3 +6,4 @@ coverage
 *.config.ts
 public
 .husky
+scripts
