@@ -6,7 +6,7 @@ import Collapse from "../../components/collapse/Collapse"
 import Slideshow from "../../components/slideshow/SlideShow" // Importez le composant Slideshow
 import { Logement } from "../../types"
 
-const logements: Logement[] = logementsData;
+const logements: Logement[] = logementsData
 
 export default function Apart() {
   const { id } = useParams<{ id: string }>() // extraction de la paramètre de l'URL

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   border-radius: map-get($br, medium);
-  animation: collapse-open .5s;
+  animation: collapse-open 0.5s;
 
   &__header {
     display: flex;
@@ -39,7 +39,7 @@
     color: $primary-color;
     border-radius: map-get($br, mixed);
     max-height: 0;
-    transition: all .5s ease-out;
+    transition: all 0.5s ease-out;
     transform-origin: top;
 
     &.open {
