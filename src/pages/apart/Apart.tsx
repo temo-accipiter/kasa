@@ -1,6 +1,6 @@
 import "../../styles/main.scss"
 import { useParams } from "react-router-dom"
-import logementsData from "../../data/logements.json"
+import logementsData from "../../lib/data/logements.json"
 import StarRating from "../../components/star/StarRating"
 import Collapse from "../../components/collapse/Collapse"
 import Slideshow from "../../components/slideshow/SlideShow" // Importez le composant Slideshow
