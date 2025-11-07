@@ -2163,6 +2163,11 @@
   resolved "https://registry.npmjs.org/@swc/core-linux-x64-gnu/-/core-linux-x64-gnu-1.15.0.tgz"
   integrity sha512-pY4is+jEpOxlYCSnI+7N8Oxbap9TmTz5YT84tUvRTlOlTBwFAUlWFCX0FRwWJlsfP0TxbqhIe8dNNzlsEmJbXQ==
 
+"@swc/core-linux-x64-musl@1.15.0":
+  version "1.15.0"
+  resolved "https://registry.npmjs.org/@swc/core-linux-x64-musl/-/core-linux-x64-musl-1.15.0.tgz"
+  integrity sha512-zYEt5eT8y8RUpoe7t5pjpoOdGu+/gSTExj8PV86efhj6ugB3bPlj3Y85ogdW3WMVXr4NvwqvzdaYGCZfXzSyVg==
+
 "@swc/core@^1.7.3":
   version "1.15.0"
   resolved "https://registry.npmjs.org/@swc/core/-/core-1.15.0.tgz"

@@ -1,0 +1,75 @@
+// ============================================
+// BUTTONS - Styles des boutons
+// ============================================
+
+@use "../abstracts" as *;
+
+.btn {
+  @include reset-button;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: var(--border-radius-md);
+  font-weight: $font-weight-medium;
+  text-align: center;
+  transition: all var(--transition-base) $transition-ease;
+  cursor: pointer;
+
+  @include focus-visible;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  // Primary button
+  &--primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+
+    &:hover:not(:disabled) {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+  }
+
+  // Secondary button
+  &--secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-primary);
+      color: var(--color-text-inverse);
+    }
+  }
+
+  // Ghost button
+  &--ghost {
+    background-color: transparent;
+    color: var(--color-text);
+
+    &:hover:not(:disabled) {
+      background-color: var(--color-gray-light);
+    }
+  }
+
+  // Size variants
+  &--sm {
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-sm;
+  }
+
+  &--lg {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-lg;
+  }
+
+  // Icon button
+  &--icon {
+    padding: $spacing-sm;
+    aspect-ratio: 1;
+  }
+}

@@ -1,18 +1,62 @@
-@import "abstracts/variables";
-@import "abstracts/mixins";
-@import "base/base";
-@import "base/typography";
-@import "animations/keyframes";
+// ============================================
+// MAIN SCSS - Point d'entrée principal
+// ============================================
+// Architecture SASS moderne avec @use et @forward
+// Structure: 7-1 Pattern
 
-@import "../components/header/Header";
-@import "../components/footer/Footer";
-@import "../components/card/Card";
-@import "../components/banner/Banner";
-@import "../components/star/StarRating";
-@import "../components/collapse/Collapse";
-@import "../components/slideshow/Slideshow";
+// ============================================
+// 1. THEMES
+// ============================================
+// Système de thème clair/sombre avec CSS Custom Properties
+@use "themes/theme";
 
-@import "../pages/home/Home";
-@import "../pages/about/About";
-@import "../pages/apart/Apart";
-@import "../pages/errorpage/ErrorPage";
+// ============================================
+// 2. ABSTRACTS
+// ============================================
+// Variables, mixins, functions - Ne génèrent pas de CSS
+// Utilisés avec @use dans les autres fichiers
+@use "abstracts" as *;
+
+// ============================================
+// 3. BASE
+// ============================================
+// Reset, typography, styles de base globaux
+@use "base";
+
+// ============================================
+// 4. LAYOUTS
+// ============================================
+// Header, footer, grilles et autres structures de layout
+@use "layouts";
+
+// ============================================
+// 5. COMPONENTS
+// ============================================
+// Composants réutilisables (boutons, cartes, etc.)
+@use "components";
+
+// ============================================
+// 6. PAGES
+// ============================================
+// Styles spécifiques à chaque page
+@use "pages";
+
+// ============================================
+// NOTES D'UTILISATION
+// ============================================
+// Ce fichier utilise la syntaxe moderne SASS:
+// - @use: Charge un module et ses membres (variables, mixins, etc.)
+// - @forward: Rend disponibles les membres d'un module pour d'autres fichiers
+// - Namespaces automatiques pour éviter les conflits
+//
+// Migration de @import vers @use/@forward:
+// - Plus de contrôle sur les imports
+// - Meilleure performance de compilation
+// - Évite la duplication de code
+// - Namespaces pour une meilleure organisation
+//
+// Pour utiliser les abstracts dans un fichier:
+// @use '../abstracts' as *;
+// ou avec namespace:
+// @use '../abstracts';
+// puis: abstracts.$primary-color

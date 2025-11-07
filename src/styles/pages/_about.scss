@@ -1,0 +1,17 @@
+// ============================================
+// ABOUT PAGE - Page à propos
+// ============================================
+
+@use "../abstracts" as *;
+
+.about {
+  @include page-layout;
+
+  &__collapse__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1023px;
+    margin: auto;
+    gap: $spacing-2xl;
+  }
+}

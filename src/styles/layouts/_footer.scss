@@ -1,0 +1,28 @@
+// ============================================
+// FOOTER - Layout footer
+// ============================================
+
+@use "../abstracts" as *;
+
+.footer {
+  text-align: center;
+  height: 209px;
+  background-color: var(--color-secondary);
+  margin-top: $spacing-xl;
+  padding: $spacing-3xl $spacing-lg;
+
+  &__logo {
+    width: 122px;
+    height: 40px;
+    margin: 0 auto $spacing-3xl;
+  }
+
+  &__text {
+    color: var(--color-text-inverse);
+    font-size: $font-size-xl;
+
+    @include mobile {
+      font-size: $font-size-sm;
+    }
+  }
+}
