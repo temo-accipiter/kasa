@@ -1,10 +1,10 @@
 import "../../styles/main.scss"
 import { useState } from "react"
-import PropTypes from "prop-types"
 import arrowIcon from "../../assets/fleche.png"
+import { CollapseProps } from "../../types"
 
-export default function Collapse({ title, children }) {
-  const [isCollapsed, setIsCollapsed] = useState(true) // Utilisation du hook useState pour gérer l'état du collapse
+export default function Collapse({ title, children }: CollapseProps) {
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(true) // Utilisation du hook useState pour gérer l'état du collapse
 
   // Fonction pour basculer l'état du collapse
   const toggleCollapse = () => {
@@ -31,9 +31,3 @@ export default function Collapse({ title, children }) {
     </div>
   )
 }
-
-// Définition des types de données attendus pour les props
-Collapse.propTypes = {
-  title: PropTypes.string.isRequired, // title doit être une chaîne de caractères requise
-  children: PropTypes.node.isRequired, // children doit être un nœud (élément React) requis
-};

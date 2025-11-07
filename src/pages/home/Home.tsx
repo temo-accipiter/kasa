@@ -2,7 +2,10 @@ import "../../styles/main.scss"
 import Banner from "../../components/banner/Banner"
 import coastBanner from "../../assets/coast.png"
 import Card from "../../components/card/Card" // Importation du composant Card
-import logements from "../../data/logements.json" // Importation des données de logement depuis le fichier JSON
+import logementsData from "../../data/logements.json" // Importation des données de logement depuis le fichier JSON
+import { Logement } from "../../types"
+
+const logements: Logement[] = logementsData;
 
 export default function Home() {
   return (

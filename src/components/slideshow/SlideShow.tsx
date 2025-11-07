@@ -1,12 +1,12 @@
 import "../../styles/main.scss"
 import { useState } from "react"
-import PropTypes from "prop-types"
 import leftArrowImage from "../../assets/arrowleft.png"
 import rightArrowImage from "../../assets/arrowright.png"
+import { SlideshowProps } from "../../types"
 
 // Définition de le composant fonctionnel "Slideshow" qui prend un tableau d'images en tant que propriété.
-export default function Slideshow({ images }) {
-  const [currentSlide, setCurrentSlide] = useState(0)
+export default function Slideshow({ images }: SlideshowProps) {
+  const [currentSlide, setCurrentSlide] = useState<number>(0)
 
   // Fonction pour passer à l'image précédente
   const PreviousSlide = () => {
@@ -26,7 +26,7 @@ export default function Slideshow({ images }) {
       {images.length === 1 ? (
         <img
           src={images[currentSlide]}
-          alt={images[currentSlide].title}
+          alt="Slide"
           className="slideshow__image"
         />
       ) : (
@@ -46,7 +46,7 @@ export default function Slideshow({ images }) {
           {/* Affichage de l'image actuelle */}
           <img
             src={images[currentSlide]}
-            alt={images[currentSlide].title}
+            alt="Slide"
             className="slideshow__image"
           />
 
@@ -61,8 +61,3 @@ export default function Slideshow({ images }) {
     </div>
   )
 }
-
-Slideshow.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.string).isRequired,
-}
-

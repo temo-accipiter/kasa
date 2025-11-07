@@ -1,7 +1,8 @@
 import "../../styles/main.scss"
 import { Link } from "react-router-dom" // Importation de React Router pour créer des liens
+import { CardProps } from "../../types"
 
-export default function Card({ item }) {
+export default function Card({ item }: CardProps) {
   return (
     <div className="card">
       {/* Utilisation de Link pour créer un lien vers la page du logement */}
