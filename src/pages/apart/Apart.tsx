@@ -1,5 +1,6 @@
 import "../../styles/main.scss"
 import { useParams } from "react-router-dom"
+import { useTranslation } from 'react-i18next'
 import logementsData from "../../lib/data/logements.json"
 import StarRating from "../../components/star/StarRating"
 import Collapse from "../../components/collapse/Collapse"
@@ -9,6 +10,7 @@ import { Logement } from "../../types"
 const logements: Logement[] = logementsData
 
 export default function Apart() {
+  const { t } = useTranslation()
   const { id } = useParams<{ id: string }>() // extraction de la paramètre de l'URL
 
   // Recherche des données du logement en fonction de l'ID
@@ -16,7 +18,7 @@ export default function Apart() {
 
   // Si le logement n'est pas trouvé, affiche un message
   if (!logement) {
-    return <div className="apart__error">Logement non trouvé</div>
+    return <div className="apart__error">{t('apart.notFound')}</div>
   }
 
   return (
@@ -31,7 +33,7 @@ export default function Apart() {
 
             <ul
               className="apart__content__tags"
-              aria-label="Caractéristiques du logement"
+              aria-label={t('apart.features')}
             >
               {/* Utilisation d'une boucle pour afficher les tags */}
               {logement.tags.map((tags, index) => (
@@ -58,11 +60,11 @@ export default function Apart() {
 
         <div className="apart__collapse">
           <div className="apart__collapse__element">
-            <Collapse title="Description">{logement.description}</Collapse>
+            <Collapse title={t('apart.description')}>{logement.description}</Collapse>
           </div>
 
           <div className="apart__collapse__element">
-            <Collapse title="Équipements">
+            <Collapse title={t('apart.equipments')}>
               <ul>
                 {logement.equipments.map((equipments, index) => (
                   <li key={`${equipments}-${index}`}>{equipments}</li>

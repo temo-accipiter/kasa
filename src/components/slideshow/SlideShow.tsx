@@ -1,11 +1,13 @@
 import "../../styles/main.scss"
 import { useState } from "react"
+import { useTranslation } from 'react-i18next'
 import leftArrowImage from "../../assets/arrowleft.png"
 import rightArrowImage from "../../assets/arrowright.png"
 import { SlideshowProps } from "../../types"
 
 // Définition de le composant fonctionnel "Slideshow" qui prend un tableau d'images en tant que propriété.
 export default function Slideshow({ images }: SlideshowProps) {
+  const { t } = useTranslation()
   const [currentSlide, setCurrentSlide] = useState<number>(0)
 
   // Fonction pour passer à l'image précédente
@@ -24,14 +26,14 @@ export default function Slideshow({ images }: SlideshowProps) {
     <div
       className="slideshow"
       role="region"
-      aria-label="Galerie de photos"
+      aria-label={t('slideshow.gallery')}
       aria-live="polite"
     >
       {/* Si le tableau d'images ne contient qu'une seule image, les boutons et la numérotation seront masqués */}
       {images.length === 1 ? (
         <img
           src={images[currentSlide]}
-          alt="Photo du logement"
+          alt={t('slideshow.photo')}
           className="slideshow__image"
         />
       ) : (
@@ -39,7 +41,7 @@ export default function Slideshow({ images }: SlideshowProps) {
           <button
             className="slideshow__arrow slideshow__arrow--left"
             onClick={PreviousSlide}
-            aria-label="Image précédente"
+            aria-label={t('slideshow.previous')}
             type="button"
           >
             <img src={leftArrowImage} alt="" role="presentation" />
@@ -51,22 +53,22 @@ export default function Slideshow({ images }: SlideshowProps) {
             aria-live="polite"
             aria-atomic="true"
           >
-            <span className="visually-hidden">Image </span>
+            <span className="visually-hidden">{t('slideshow.image')} </span>
             {currentSlide + 1}
-            <span className="visually-hidden"> sur </span>/{images.length}
+            <span className="visually-hidden"> {t('slideshow.of')} </span>/{images.length}
           </div>
 
           {/* Affichage de l'image actuelle */}
           <img
             src={images[currentSlide]}
-            alt={`Photo ${currentSlide + 1} du logement`}
+            alt={t('slideshow.photoNumber', { number: currentSlide + 1 })}
             className="slideshow__image"
           />
 
           <button
             className="slideshow__arrow slideshow__arrow--right"
             onClick={NextSlide}
-            aria-label="Image suivante"
+            aria-label={t('slideshow.next')}
             type="button"
           >
             <img src={rightArrowImage} alt="" role="presentation" />

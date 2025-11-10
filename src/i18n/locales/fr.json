@@ -1,0 +1,79 @@
+{
+  "header": {
+    "home": "Accueil",
+    "about": "A propos",
+    "returnHome": "Retour à l'accueil",
+    "mainNav": "Navigation principale",
+    "logoAlt": "Kasa, location d'appartements"
+  },
+  "footer": {
+    "copyright": "© 2020 Kasa. Tous droits réservés",
+    "logoAlt": "Kasa"
+  },
+  "collapse": {
+    "show": "Afficher",
+    "hide": "Masquer",
+    "content": "le contenu"
+  },
+  "slideshow": {
+    "gallery": "Galerie de photos",
+    "previous": "Image précédente",
+    "next": "Image suivante",
+    "photo": "Photo du logement",
+    "photoNumber": "Photo {{number}} du logement",
+    "image": "Image",
+    "of": "sur"
+  },
+  "starRating": {
+    "label": "Note: {{rating}} sur 5 étoiles"
+  },
+  "card": {
+    "viewAccommodation": "Voir le logement {{title}}"
+  },
+  "banner": {
+    "home": "Chez vous, partout et ailleurs"
+  },
+  "home": {
+    "bannerAlt": "Paysage côtier",
+    "accommodationsList": "Liste des logements disponibles"
+  },
+  "about": {
+    "bannerAlt": "Paysage de montagne",
+    "reliability": {
+      "title": "Fiabilité",
+      "content": "Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes."
+    },
+    "respect": {
+      "title": "Respect",
+      "content": "La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme."
+    },
+    "service": {
+      "title": "Service",
+      "content": "La qualité du service est au cœur de notre engagement chez Kasa. Nous veillons à ce que chaque interaction, que ce soit avec nos hôtes ou nos locataires, soit empreinte de respect et de bienveillance."
+    },
+    "security": {
+      "title": "Sécurité",
+      "content": "La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes."
+    }
+  },
+  "error": {
+    "title": "404",
+    "message": "Oups! La page que vous demandez n'existe pas.",
+    "returnHome": "Retourner sur la page d'accueil"
+  },
+  "apart": {
+    "notFound": "Logement non trouvé",
+    "features": "Caractéristiques du logement",
+    "description": "Description",
+    "equipments": "Équipements"
+  },
+  "app": {
+    "skipToContent": "Aller au contenu principal"
+  },
+  "loading": "Chargement...",
+  "language": {
+    "switchTo": "Passer en {{language}}",
+    "fr": "Français",
+    "en": "English"
+  }
+}

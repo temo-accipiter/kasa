@@ -1,9 +1,11 @@
 import "../../styles/main.scss"
 import { useState, useId } from "react"
+import { useTranslation } from 'react-i18next'
 import arrowIcon from "../../assets/fleche.png"
 import { CollapseProps } from "../../types"
 
 export default function Collapse({ title, children }: CollapseProps) {
+  const { t } = useTranslation()
   const [isCollapsed, setIsCollapsed] = useState<boolean>(true) // Utilisation du hook useState pour gérer l'état du collapse
   const contentId = useId() // Génère un ID unique pour aria-controls
 
@@ -33,7 +35,7 @@ export default function Collapse({ title, children }: CollapseProps) {
             }`}
           />
           <span className="visually-hidden">
-            {isCollapsed ? "Afficher" : "Masquer"} le contenu
+            {isCollapsed ? t('collapse.show') : t('collapse.hide')} {t('collapse.content')}
           </span>
         </button>
       </div>
