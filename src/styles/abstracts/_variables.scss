@@ -3,6 +3,7 @@
 // ============================================
 // Système de design tokens centralisé
 // Utilise les CSS Custom Properties pour le theming
+// Optimisé pour enfants TSA (palette pastel, animations douces)
 
 // ============================================
 // COLORS - Palette principale
@@ -16,6 +17,35 @@ $color-text-light: #ffffff;
 $color-gray-light: #f6f6f6;
 $color-gray-medium: #e3e3e3;
 $color-gray-dark: #333333;
+
+// ============================================
+// COLORS - Palette pastel TSA (apaisante)
+// ============================================
+// Couleurs douces et apaisantes optimisées pour enfants TSA
+$color-pastel-blue: #a8d5e2; // Bleu ciel doux
+$color-pastel-green: #b8e6d5; // Vert menthe apaisant
+$color-pastel-yellow: #ffeaa7; // Jaune crème doux
+$color-pastel-pink: #ffccd5; // Rose poudré
+$color-pastel-lavender: #d4c5f9; // Lavande douce
+$color-pastel-peach: #ffd7ba; // Pêche pastel
+$color-pastel-mint: #c7ecee; // Menthe claire
+
+// ============================================
+// COLORS - États et feedback
+// ============================================
+$color-success: #b8e6d5; // Vert pastel
+$color-warning: #ffeaa7; // Jaune pastel
+$color-error: #ffccd5; // Rose pastel (moins agressif que rouge vif)
+$color-info: #a8d5e2; // Bleu pastel
+
+// ============================================
+// COLORS - Overlays et surfaces
+// ============================================
+$color-overlay-light: rgba(255, 255, 255, 0.95);
+$color-overlay-dark: rgba(0, 0, 0, 0.3); // Plus doux pour TSA
+$color-surface-elevated: #ffffff;
+$color-surface-base: #fafafa;
+$color-surface-sunken: #f0f0f0;
 
 // ============================================
 // SPACING - Système d'espacement cohérent
@@ -88,12 +118,27 @@ $shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.2);
 $shadow-xl: 0 15px 30px rgba(0, 0, 0, 0.25);
 
 // ============================================
-// TRANSITIONS - Animations
+// TRANSITIONS - Animations (optimisées TSA)
 // ============================================
-$transition-fast: 150ms;
-$transition-base: 300ms;
-$transition-slow: 500ms;
+// Animations plus douces et progressives pour enfants TSA
+$transition-instant: 100ms;
+$transition-fast: 200ms;
+$transition-base: 400ms; // Plus doux que 300ms
+$transition-slow: 600ms;
+$transition-slower: 800ms;
 $transition-ease: ease-in-out;
+$transition-ease-out: cubic-bezier(0.33, 1, 0.68, 1); // Plus naturel
+$transition-ease-in: cubic-bezier(0.32, 0, 0.67, 0);
+$transition-smooth: cubic-bezier(0.4, 0, 0.2, 1); // Material Design
+
+// ============================================
+// OPACITY - Niveaux de transparence
+// ============================================
+$opacity-disabled: 0.5;
+$opacity-hover: 0.9;
+$opacity-subtle: 0.7;
+$opacity-medium: 0.5;
+$opacity-light: 0.3;
 
 // ============================================
 // Z-INDEX - Gestion des couches
@@ -109,6 +154,19 @@ $z-index-tooltip: 400;
 $container-max-width: 1240px;
 $container-max-width-large: 1440px;
 $header-height: 68px;
+
+// ============================================
+// ACCESSIBILITY - Focus et contraste
+// ============================================
+$focus-ring-width: 3px;
+$focus-ring-offset: 2px;
+$focus-ring-color: $color-primary;
+$focus-ring-color-inverse: $color-tertiary;
+$focus-ring-style: solid;
+
+// Contrastes minimums WCAG AA
+$contrast-ratio-normal: 4.5; // Pour texte normal
+$contrast-ratio-large: 3; // Pour texte large (18pt+)
 
 // ============================================
 // GRADIENTS - Dégradés

@@ -1,0 +1,346 @@
+// ============================================
+// PLACEHOLDERS - Patterns réutilisables
+// ============================================
+// Utilisez @extend %placeholder-name pour réutiliser ces styles
+// Les placeholders ne génèrent pas de CSS tant qu'ils ne sont pas étendus
+
+@use "variables" as *;
+@use "mixins" as *;
+
+// ============================================
+// LAYOUT PLACEHOLDERS
+// ============================================
+
+%container {
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-lg;
+  padding-right: $spacing-lg;
+
+  @include mobile {
+    padding-left: $spacing-md;
+    padding-right: $spacing-md;
+  }
+}
+
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+%absolute-fill {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// ============================================
+// CARD PLACEHOLDERS
+// ============================================
+
+%card-base {
+  background-color: $color-surface-elevated;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+  padding: $spacing-lg;
+}
+
+%card-interactive {
+  @extend %card-base;
+  cursor: pointer;
+  transition: all $transition-base $transition-ease-out;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: translateY(-2px);
+    box-shadow: $shadow-sm;
+  }
+
+  @include reduced-motion {
+    &:hover,
+    &:active {
+      transform: none;
+    }
+  }
+}
+
+%card-elevated {
+  @extend %card-base;
+  box-shadow: $shadow-md;
+}
+
+// ============================================
+// BUTTON PLACEHOLDERS
+// ============================================
+
+%btn-reset {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+  color: inherit;
+}
+
+%btn-base {
+  @extend %btn-reset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-md;
+  font-weight: $font-weight-medium;
+  text-align: center;
+  transition: all $transition-base $transition-ease;
+
+  @include focus-visible;
+
+  &:disabled {
+    opacity: $opacity-disabled;
+    cursor: not-allowed;
+  }
+}
+
+%btn-hover-lift {
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  @include reduced-motion {
+    &:hover:not(:disabled),
+    &:active:not(:disabled) {
+      transform: none;
+    }
+  }
+}
+
+// ============================================
+// TEXT PLACEHOLDERS
+// ============================================
+
+%text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+%text-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+%text-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+%heading-base {
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin: 0;
+}
+
+// ============================================
+// IMAGE PLACEHOLDERS
+// ============================================
+
+%img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+%img-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+%img-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// ============================================
+// OVERLAY PLACEHOLDERS
+// ============================================
+
+%overlay-base {
+  @extend %absolute-fill;
+  background-color: $color-overlay-dark;
+}
+
+%overlay-gradient {
+  @extend %absolute-fill;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+%overlay-gradient-dark {
+  @extend %absolute-fill;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+}
+
+// ============================================
+// LIST PLACEHOLDERS
+// ============================================
+
+%list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+%list-inline {
+  @extend %list-reset;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+// ============================================
+// LINK PLACEHOLDERS
+// ============================================
+
+%link-reset {
+  color: inherit;
+  text-decoration: none;
+}
+
+%link-underline-hover {
+  text-decoration: none;
+  transition: text-decoration $transition-fast $transition-ease;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// ============================================
+// SHADOW PLACEHOLDERS
+// ============================================
+
+%shadow-sm {
+  box-shadow: $shadow-sm;
+}
+
+%shadow-md {
+  box-shadow: $shadow-md;
+}
+
+%shadow-lg {
+  box-shadow: $shadow-lg;
+}
+
+%shadow-xl {
+  box-shadow: $shadow-xl;
+}
+
+%shadow-hover {
+  box-shadow: $shadow-sm;
+  transition: box-shadow $transition-base $transition-ease;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+  }
+}
+
+// ============================================
+// ACCESSIBILITY PLACEHOLDERS
+// ============================================
+
+%visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+%focus-ring {
+  &:focus-visible {
+    outline: $focus-ring-width $focus-ring-style $focus-ring-color;
+    outline-offset: $focus-ring-offset;
+  }
+}
+
+// ============================================
+// TSA-SPECIFIC PLACEHOLDERS
+// ============================================
+
+%calming-surface {
+  background-color: $color-surface-elevated;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-sm;
+  padding: $spacing-lg;
+}
+
+%gentle-interactive {
+  cursor: pointer;
+  transition: all $transition-slow $transition-ease-out;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: scale(1);
+  }
+
+  @include reduced-motion {
+    &:hover,
+    &:active {
+      transform: none;
+      opacity: $opacity-hover;
+    }
+  }
+}
+
+%pastel-card {
+  background: linear-gradient(
+    135deg,
+    $color-pastel-blue 0%,
+    $color-pastel-lavender 100%
+  );
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  box-shadow: $shadow-md;
+}

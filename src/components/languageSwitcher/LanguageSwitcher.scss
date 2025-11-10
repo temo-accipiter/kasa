@@ -1,34 +1,53 @@
-.language-switcher {
-  background: transparent;
-  border: 2px solid #ff6060;
-  color: #ff6060;
-  padding: 8px 16px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
+// ============================================
+// LANGUAGE SWITCHER - Sélecteur de langue
+// ============================================
 
+@use "../../styles/abstracts" as *;
+
+.language-switcher {
+  // Reset et base
+  @include reset-button;
+
+  // Style de base
+  background: transparent;
+  border: 2px solid var(--color-primary, $color-primary);
+  color: var(--color-primary, $color-primary);
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  font-family: $font-family-base;
+
+  // Transitions douces pour TSA
+  @include gentle-animation(all, $transition-base);
+
+  // États interactifs
   &:hover {
-    background: #ff6060;
-    color: #fff;
+    background: var(--color-primary, $color-primary);
+    color: var(--color-text-inverse, $color-text-light);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(255, 96, 96, 0.3);
   }
 
   &:active {
     transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(255, 96, 96, 0.3);
+    box-shadow: $shadow-sm;
   }
 
-  &:focus {
-    outline: 2px solid #ff6060;
-    outline-offset: 2px;
+  // Accessibilité
+  @include focus-visible;
+
+  // Responsive
+  @include mobile {
+    padding: calc($spacing-sm * 0.75) $spacing-sm;
+    font-size: $font-size-xs;
   }
 
-  @media (max-width: 768px) {
-    padding: 6px 12px;
-    font-size: 12px;
+  // Support prefers-reduced-motion
+  @include reduced-motion {
+    &:hover,
+    &:active {
+      transform: none;
+    }
   }
 }

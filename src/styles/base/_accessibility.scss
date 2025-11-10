@@ -1,3 +1,14 @@
+// ============================================
+// ACCESSIBILITY - WCAG AA Compliant
+// ============================================
+// Helpers pour l'accessibilité optimisés pour enfants TSA
+
+@use "../abstracts" as *;
+
+// ============================================
+// VISUALLY HIDDEN CONTENT
+// ============================================
+
 // Classe pour masquer visuellement du contenu mais le garder accessible aux lecteurs d'écran
 .visually-hidden {
   position: absolute;
@@ -11,32 +22,189 @@
   border: 0;
 }
 
+// Rendre visible au focus (utile pour les skip links)
+.visually-hidden-focusable {
+  @extend .visually-hidden;
+
+  &:focus,
+  &:active {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+// ============================================
+// SKIP LINKS
+// ============================================
+
 // Skip link pour navigation clavier
 .skip-link {
   position: absolute;
   top: -40px;
   left: 0;
-  background: var(--primary-color, #ff6060);
-  color: white;
-  padding: 8px;
+  background: var(--color-primary, $color-primary);
+  color: $color-text-light;
+  padding: $spacing-sm $spacing-md;
   text-decoration: none;
-  z-index: 100;
-  font-weight: 600;
+  z-index: $z-index-tooltip;
+  font-weight: $font-weight-bold;
+  border-radius: $border-radius-sm;
+  transition: top $transition-fast $transition-ease;
 
   &:focus {
-    top: 0;
+    top: $spacing-sm;
+    outline: $focus-ring-width $focus-ring-style $focus-ring-color-inverse;
+    outline-offset: $focus-ring-offset;
   }
 }
 
+// ============================================
+// FOCUS STYLES
+// ============================================
+
 // Amélioration de la visibilité du focus pour tous les éléments interactifs
 *:focus-visible {
-  outline: 3px solid #ff6060;
-  outline-offset: 2px;
+  outline: $focus-ring-width $focus-ring-style
+    var(--color-primary, $color-primary);
+  outline-offset: $focus-ring-offset;
 }
 
 // Pour les boutons et liens
 button:focus-visible,
 a:focus-visible {
-  outline: 3px solid #ff6060;
-  outline-offset: 2px;
+  outline: $focus-ring-width $focus-ring-style
+    var(--color-primary, $color-primary);
+  outline-offset: $focus-ring-offset;
+}
+
+// Focus style alternatif pour fonds sombres
+.focus-inverse {
+  &:focus-visible {
+    outline-color: $focus-ring-color-inverse;
+  }
+}
+
+// ============================================
+// HIGH CONTRAST MODE
+// ============================================
+
+// Support pour le mode haut contraste Windows
+@media (prefers-contrast: high) {
+  * {
+    border-width: 2px !important;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    outline-width: 3px !important;
+  }
+}
+
+// ============================================
+// REDUCED MOTION
+// ============================================
+
+// Respecter la préférence de mouvement réduit de l'utilisateur
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// ============================================
+// SCREEN READER ONLY TEXT
+// ============================================
+
+.sr-only {
+  @extend .visually-hidden;
+}
+
+.sr-only-focusable {
+  @extend .visually-hidden-focusable;
+}
+
+// ============================================
+// ACCESSIBLE HIDE/SHOW
+// ============================================
+
+// Cache complètement l'élément (même pour les lecteurs d'écran)
+.a11y-hidden {
+  display: none !important;
+}
+
+// Affiche l'élément
+.a11y-visible {
+  display: block !important;
+}
+
+// ============================================
+// FOCUS TRAP HELPER
+// ============================================
+
+// Pour les modales et overlays
+.focus-trap {
+  &:focus {
+    outline: none;
+  }
+}
+
+// ============================================
+// ARIA LIVE REGIONS
+// ============================================
+
+// Zone pour les annonces aux lecteurs d'écran
+.aria-live-region {
+  @extend .visually-hidden;
+
+  &[aria-live="assertive"] {
+    // Les annonces assertives interrompent la lecture en cours
+    position: absolute;
+  }
+
+  &[aria-live="polite"] {
+    // Les annonces polies attendent la fin de la lecture en cours
+    position: absolute;
+  }
+}
+
+// ============================================
+// TOUCH TARGET SIZE (WCAG 2.5.5)
+// ============================================
+
+// Assure une zone de clic minimum de 44x44px
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ============================================
+// COLOR CONTRAST HELPERS
+// ============================================
+
+// Texte avec contraste AA minimum
+.text-contrast-aa {
+  color: $color-text-dark;
+  background-color: $color-background;
+}
+
+// Texte avec contraste AAA (plus strict)
+.text-contrast-aaa {
+  color: $color-secondary;
+  background-color: $color-tertiary;
 }
