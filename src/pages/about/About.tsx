@@ -1,42 +1,34 @@
 import "../../styles/main.scss"
+import { useTranslation } from 'react-i18next'
 import Banner from "../../components/banner/Banner"
 import landscapeBanner from "../../assets/landscape.png"
 import Collapse from "../../components/collapse/Collapse"
 
 export default function About() {
+  const { t } = useTranslation()
+
   return (
     <main className="about" id="main-content">
       <div className="about__container">
         {/* Utilisation du composant Banner avec une image de paysage */}
-        <Banner image={landscapeBanner} alt="Paysage de montagne" />
+        <Banner image={landscapeBanner} alt={t('about.bannerAlt')} />
 
         {/* Une div pour contenir les éléments Collapse. */}
         <section className="about__collapse__container">
-          <Collapse title="Fiabilité">
-            Les annonces postées sur Kasa garantissent une fiabilité totale. Les
-            photos sont conformes aux logements, et toutes les informations sont
-            régulièrement vérifiées par nos équipes.
+          <Collapse title={t('about.reliability.title')}>
+            {t('about.reliability.content')}
           </Collapse>
 
-          <Collapse title="Respect">
-            Les bienveillance fait partie des valeurs fondatrices de Kasa. Tout
-            comportement discriminatoire ou de perturbation du voisinage
-            entraînera une exclusion de notre plateforme.
+          <Collapse title={t('about.respect.title')}>
+            {t('about.respect.content')}
           </Collapse>
 
-          <Collapse title="Service">
-            Les bienveillance fait partie des valeurs fondatrices de Kasa. Tout
-            comportement discriminatoire ou de perturbation du voisinage
-            entraînera une exclusion de notre plateforme.
+          <Collapse title={t('about.service.title')}>
+            {t('about.service.content')}
           </Collapse>
 
-          <Collapse title="Sécurité">
-            La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que
-            pour les voyageurs, chaque logement correspond aux critères de
-            sécurité établis par nos services. En laissant une note aussi bien à
-            l'hôte qu'au locataire, cela permet à nos équipes de vérifier que
-            les standards sont bien respectés. Nous organisons également des
-            ateliers sur la sécurité domestique pour nos hôtes.
+          <Collapse title={t('about.security.title')}>
+            {t('about.security.content')}
           </Collapse>
         </section>
       </div>

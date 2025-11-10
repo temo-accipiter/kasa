@@ -1,8 +1,10 @@
 import "./styles/main.scss"
+import "./i18n/config" // Import i18n configuration
 import * as React from "react"
 import * as ReactDOM from "react-dom/client"
 import { createBrowserRouter, RouterProvider } from "react-router-dom" // Importation des composants pour la gestion de routes
 import App from "./App"
+import LoadingFallback from "./components/LoadingFallback/LoadingFallback"
 
 // Configuration axe-core pour l'audit d'accessibilité en développement
 if (process.env.NODE_ENV !== "production") {
@@ -47,20 +49,7 @@ const rootElement = document.getElementById("root")
 if (!rootElement) throw new Error("Failed to find the root element")
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <React.Suspense
-      fallback={
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100vh",
-          }}
-        >
-          Chargement...
-        </div>
-      }
-    >
+    <React.Suspense fallback={<LoadingFallback />}>
       <RouterProvider router={router} />
     </React.Suspense>
   </React.StrictMode>,

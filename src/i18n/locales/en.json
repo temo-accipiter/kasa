@@ -1,0 +1,79 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "returnHome": "Return to home",
+    "mainNav": "Main navigation",
+    "logoAlt": "Kasa, apartment rental"
+  },
+  "footer": {
+    "copyright": "© 2020 Kasa. All rights reserved",
+    "logoAlt": "Kasa"
+  },
+  "collapse": {
+    "show": "Show",
+    "hide": "Hide",
+    "content": "content"
+  },
+  "slideshow": {
+    "gallery": "Photo gallery",
+    "previous": "Previous image",
+    "next": "Next image",
+    "photo": "Accommodation photo",
+    "photoNumber": "Photo {{number}} of accommodation",
+    "image": "Image",
+    "of": "of"
+  },
+  "starRating": {
+    "label": "Rating: {{rating}} out of 5 stars"
+  },
+  "card": {
+    "viewAccommodation": "View accommodation {{title}}"
+  },
+  "banner": {
+    "home": "Feel at home, anywhere"
+  },
+  "home": {
+    "bannerAlt": "Coastal landscape",
+    "accommodationsList": "List of available accommodations"
+  },
+  "about": {
+    "bannerAlt": "Mountain landscape",
+    "reliability": {
+      "title": "Reliability",
+      "content": "The listings posted on Kasa guarantee total reliability. The photos match the accommodations, and all information is regularly verified by our teams."
+    },
+    "respect": {
+      "title": "Respect",
+      "content": "Kindness is part of Kasa's founding values. Any discriminatory behavior or neighborhood disruption will result in exclusion from our platform."
+    },
+    "service": {
+      "title": "Service",
+      "content": "Service quality is at the heart of our commitment at Kasa. We ensure that every interaction, whether with our hosts or guests, is characterized by respect and kindness."
+    },
+    "security": {
+      "title": "Security",
+      "content": "Security is Kasa's priority. For both our hosts and travelers, each accommodation meets the safety criteria established by our services. By leaving reviews for both host and guest, our teams can verify that standards are properly met. We also organize workshops on home security for our hosts."
+    }
+  },
+  "error": {
+    "title": "404",
+    "message": "Oops! The page you are looking for does not exist.",
+    "returnHome": "Return to home page"
+  },
+  "apart": {
+    "notFound": "Accommodation not found",
+    "features": "Accommodation features",
+    "description": "Description",
+    "equipments": "Amenities"
+  },
+  "app": {
+    "skipToContent": "Skip to main content"
+  },
+  "loading": "Loading...",
+  "language": {
+    "switchTo": "Switch to {{language}}",
+    "fr": "Français",
+    "en": "English"
+  }
+}

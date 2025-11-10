@@ -1,9 +1,11 @@
 import "../../styles/main.scss"
+import { useTranslation } from 'react-i18next'
 import starInactive from "../../assets/star-inactive.png"
 import starActive from "../../assets/star-active.png"
 import { StarRatingProps } from "../../types"
 
 export default function StarRating({ rating }: StarRatingProps) {
+  const { t } = useTranslation()
   const ratingNumber = parseInt(rating, 10)
   // Création d'un tableau d'étoiles en fonction de la note reçue
   const stars = Array.from({ length: 5 }, (_, index) => (
@@ -20,7 +22,7 @@ export default function StarRating({ rating }: StarRatingProps) {
     <div
       className="star--rating"
       role="img"
-      aria-label={`Note: ${rating} sur 5 étoiles`}
+      aria-label={t('starRating.label', { rating })}
     >
       {stars}
     </div>

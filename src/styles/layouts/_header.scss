@@ -25,6 +25,16 @@
     }
   }
 
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+
+    @include mobile {
+      gap: $spacing-sm;
+    }
+  }
+
   &__nav {
     display: flex;
     justify-content: space-between;
