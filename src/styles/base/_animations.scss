@@ -81,29 +81,157 @@
 }
 
 // ============================================
+// TSA-OPTIMIZED ANIMATIONS (douces et apaisantes)
+// ============================================
+
+@keyframes gentle-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes gentle-scale {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes soft-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(255, 96, 96, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 96, 96, 0.4);
+  }
+}
+
+@keyframes slide-down-gentle {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-in-gentle {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// ============================================
 // UTILITY ANIMATION CLASSES
 // ============================================
 
 .animate-fade-in {
-  animation: fade-in var(--transition-base) ease-in;
+  animation: fade-in var(--transition-slow, 600ms) ease-in;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 .animate-slide-in-left {
-  animation: slide-in-left var(--transition-slow) ease-out;
+  animation: slide-in-left var(--transition-slow, 600ms) ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 .animate-slide-in-right {
-  animation: slide-in-right var(--transition-slow) ease-out;
+  animation: slide-in-right var(--transition-slow, 600ms) ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 .animate-slide-in-up {
-  animation: slide-in-up var(--transition-slow) ease-out;
+  animation: slide-in-up var(--transition-slow, 600ms) ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 }
 
 .animate-spin {
   animation: spin 1s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+// TSA-optimized classes
+.animate-gentle-bounce {
+  animation: gentle-bounce 2s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.animate-gentle-scale {
+  animation: gentle-scale 3s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.animate-soft-glow {
+  animation: soft-glow 2s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    box-shadow: 0 0 5px rgba(255, 96, 96, 0.2);
+  }
+}
+
+.animate-slide-down-gentle {
+  animation: slide-down-gentle var(--transition-slow, 600ms) ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.animate-zoom-in-gentle {
+  animation: zoom-in-gentle var(--transition-slow, 600ms) ease-out;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+  }
 }

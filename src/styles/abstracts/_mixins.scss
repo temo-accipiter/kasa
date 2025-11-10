@@ -150,10 +150,47 @@
   border: 0;
 }
 
-@mixin focus-visible {
+@mixin focus-visible($color: $focus-ring-color) {
   &:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
+    outline: $focus-ring-width $focus-ring-style $color;
+    outline-offset: $focus-ring-offset;
+  }
+}
+
+@mixin focus-ring-inset($color: $focus-ring-color) {
+  &:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 $focus-ring-width $color;
+  }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin respect-motion-preference {
+  transition-duration: $transition-base;
+
+  @include reduced-motion {
+    transition-duration: $transition-instant;
+  }
+}
+
+// Helper pour s'assurer qu'un élément est accessible au clavier
+@mixin keyboard-accessible {
+  &:focus {
+    outline: none;
+  }
+
+  @include focus-visible;
+}
+
+// Améliore le contraste pour les utilisateurs TSA
+@mixin high-contrast {
+  @media (prefers-contrast: high) {
+    @content;
   }
 }
 
@@ -199,4 +236,82 @@
 @mixin reset-link {
   color: inherit;
   text-decoration: none;
+}
+
+// ============================================
+// GRID MIXINS
+// ============================================
+
+@mixin grid-auto-fit($min-column-width: 250px, $gap: $spacing-lg) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-column-width, 1fr));
+  gap: $gap;
+}
+
+@mixin grid-auto-fill($min-column-width: 250px, $gap: $spacing-lg) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min-column-width, 1fr));
+  gap: $gap;
+}
+
+// ============================================
+// TSA-SPECIFIC MIXINS
+// ============================================
+
+// Animation douce adaptée aux enfants TSA
+@mixin gentle-animation($property: all, $duration: $transition-slow) {
+  transition: $property $duration $transition-ease-out;
+
+  @include reduced-motion {
+    transition: none;
+  }
+}
+
+// Hover subtil pour éviter la sur-stimulation
+@mixin gentle-hover($scale: 1.02) {
+  transition: transform $transition-slow $transition-ease-out;
+
+  &:hover {
+    transform: scale($scale);
+  }
+
+  @include reduced-motion {
+    &:hover {
+      transform: none;
+      opacity: $opacity-hover;
+    }
+  }
+}
+
+// Surface apaisante avec ombre douce
+@mixin calming-surface {
+  background-color: $color-surface-elevated;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-sm;
+  padding: $spacing-lg;
+}
+
+// Zone interactive avec feedback visuel clair
+@mixin interactive-feedback {
+  cursor: pointer;
+  transition: all $transition-base $transition-ease-out;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: $shadow-sm;
+  }
+
+  @include focus-visible;
+
+  @include reduced-motion {
+    &:hover,
+    &:active {
+      transform: none;
+    }
+  }
 }

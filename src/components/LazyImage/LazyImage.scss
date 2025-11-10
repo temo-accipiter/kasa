@@ -1,8 +1,23 @@
-.lazy-image {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+// ============================================
+// LAZY IMAGE - Image avec chargement progressif
+// ============================================
 
+@use "../../styles/abstracts" as *;
+
+.lazy-image {
+  // État initial (non chargée)
+  opacity: 0;
+
+  // Transition douce pour le chargement
+  @include gentle-animation(opacity, $transition-base);
+
+  // État chargé
   &.loaded {
     opacity: 1;
+  }
+
+  // Support prefers-reduced-motion
+  @include reduced-motion {
+    transition: opacity $transition-instant $transition-ease;
   }
 }
