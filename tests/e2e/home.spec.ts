@@ -37,9 +37,12 @@ test.describe("Page d'accueil - Tests E2E", () => {
 
       await page.waitForLoadState('networkidle');
 
-      // Filtre les erreurs connues si nécessaire
+      // Filtre les erreurs connues qui ne sont pas critiques
       const criticalErrors = consoleErrors.filter(
-        (error) => !error.includes('favicon') // Ignore les erreurs de favicon
+        (error) =>
+          !error.includes('favicon') && // Ignore les erreurs de favicon
+          !error.includes('@axe-core') && // Ignore les logs axe-core (accessibilité)
+          !error.includes('axe-core') // Ignore les logs axe-core
       );
 
       expect(criticalErrors.length).toBe(0);
@@ -62,6 +65,9 @@ test.describe("Page d'accueil - Tests E2E", () => {
     });
 
     test('devrait afficher plusieurs cartes de logements', async ({ page }) => {
+      // Attendre que les cartes soient chargées
+      await page.waitForSelector('.card', { timeout: 10000 });
+
       const cards = page.locator('.card');
       const count = await cards.count();
 
@@ -85,11 +91,14 @@ test.describe("Page d'accueil - Tests E2E", () => {
       await firstCard.click();
 
       // Vérifie la navigation vers la page de détail
-      await page.waitForURL(/\/logement\//);
-      expect(page.url()).toMatch(/\/logement\/[a-zA-Z0-9-]+/);
+      await page.waitForURL(/\/apart\//);
+      expect(page.url()).toMatch(/\/apart\/[a-zA-Z0-9-]+/);
     });
 
     test('devrait afficher le hover sur les cartes', async ({ page }) => {
+      // Attendre que les cartes soient chargées
+      await page.waitForSelector('.card', { timeout: 10000 });
+
       const firstCard = page.locator('.card').first();
 
       // Survol de la carte
