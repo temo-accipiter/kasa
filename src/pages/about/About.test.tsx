@@ -38,16 +38,18 @@ describe("About Page", () => {
 
     const banner = screen.getByTestId("banner")
     expect(banner).toBeInTheDocument()
-    expect(banner).toHaveTextContent("Paysage")
+    expect(banner).toHaveTextContent("about.bannerAlt")
   })
 
   it("renders all collapse sections", () => {
     render(<About />)
 
-    const fiabiliteCollapse = screen.getByTestId("collapse-fiabilité")
-    const respectCollapse = screen.getByTestId("collapse-respect")
-    const serviceCollapse = screen.getByTestId("collapse-service")
-    const securiteCollapse = screen.getByTestId("collapse-sécurité")
+    const fiabiliteCollapse = screen.getByTestId(
+      "collapse-about.reliability.title",
+    )
+    const respectCollapse = screen.getByTestId("collapse-about.respect.title")
+    const serviceCollapse = screen.getByTestId("collapse-about.service.title")
+    const securiteCollapse = screen.getByTestId("collapse-about.security.title")
 
     expect(fiabiliteCollapse).toBeInTheDocument()
     expect(respectCollapse).toBeInTheDocument()
@@ -58,27 +60,18 @@ describe("About Page", () => {
   it("displays correct titles for collapse sections", () => {
     render(<About />)
 
-    expect(screen.getByText("Fiabilité")).toBeInTheDocument()
-    expect(screen.getByText("Respect")).toBeInTheDocument()
-    expect(screen.getByText("Service")).toBeInTheDocument()
-    expect(screen.getByText("Sécurité")).toBeInTheDocument()
+    expect(screen.getByText("about.reliability.title")).toBeInTheDocument()
+    expect(screen.getByText("about.respect.title")).toBeInTheDocument()
+    expect(screen.getByText("about.service.title")).toBeInTheDocument()
+    expect(screen.getByText("about.security.title")).toBeInTheDocument()
   })
 
   it("displays correct content in collapse sections", () => {
     render(<About />)
 
-    expect(
-      screen.getByText(/Les annonces postées sur Kasa garantissent/i),
-    ).toBeInTheDocument()
-
-    // Note: Le texte "Les bienveillance fait partie..." apparaît dans deux sections (Respect et Service)
-    const bienveillanceTexts = screen.getAllByText(
-      /Les bienveillance fait partie des valeurs/i,
-    )
-    expect(bienveillanceTexts.length).toBeGreaterThanOrEqual(1)
-
-    expect(
-      screen.getByText(/La sécurité est la priorité de Kasa/i),
-    ).toBeInTheDocument()
+    expect(screen.getByText("about.reliability.content")).toBeInTheDocument()
+    expect(screen.getByText("about.respect.content")).toBeInTheDocument()
+    expect(screen.getByText("about.service.content")).toBeInTheDocument()
+    expect(screen.getByText("about.security.content")).toBeInTheDocument()
   })
 })

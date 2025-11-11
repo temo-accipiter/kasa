@@ -69,7 +69,7 @@ describe("Home Page", () => {
 
     const banner = screen.getByTestId("banner")
     expect(banner).toBeInTheDocument()
-    expect(banner).toHaveTextContent("Chez vous, partout et ailleurs")
+    expect(banner).toHaveTextContent("banner.home")
   })
 
   it("renders the cards container", () => {

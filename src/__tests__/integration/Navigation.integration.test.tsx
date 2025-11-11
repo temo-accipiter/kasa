@@ -82,17 +82,19 @@ describe("Navigation Integration Tests", () => {
     render(<RouterProvider router={router} />)
 
     // Vérifier qu'on est sur la page d'accueil
-    expect(
-      screen.getByText("Chez vous, partout et ailleurs"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("banner.home")).toBeInTheDocument()
 
     // Cliquer sur le lien "A propos"
-    const aboutLink = screen.getByRole("link", { name: /a propos/i })
+    const aboutLink = screen.getByRole("link", { name: /header\.about/i })
     await user.click(aboutLink)
 
     // Vérifier qu'on est maintenant sur la page About
-    expect(screen.getByTestId("collapse-fiabilité")).toBeInTheDocument()
-    expect(screen.getByTestId("collapse-respect")).toBeInTheDocument()
+    expect(
+      screen.getByTestId("collapse-about.reliability.title"),
+    ).toBeInTheDocument()
+    expect(
+      screen.getByTestId("collapse-about.respect.title"),
+    ).toBeInTheDocument()
   })
 
   it("navigates from About to Home page", async () => {
@@ -102,16 +104,16 @@ describe("Navigation Integration Tests", () => {
     render(<RouterProvider router={router} />)
 
     // Vérifier qu'on est sur la page About
-    expect(screen.getByTestId("collapse-fiabilité")).toBeInTheDocument()
+    expect(
+      screen.getByTestId("collapse-about.reliability.title"),
+    ).toBeInTheDocument()
 
     // Cliquer sur le lien "Accueil"
-    const homeLink = screen.getByRole("link", { name: /accueil/i })
+    const homeLink = screen.getByRole("link", { name: /header\.home/i })
     await user.click(homeLink)
 
     // Vérifier qu'on est maintenant sur la page Home
-    expect(
-      screen.getByText("Chez vous, partout et ailleurs"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("banner.home")).toBeInTheDocument()
   })
 
   it("displays ErrorPage for unknown routes", () => {
@@ -120,10 +122,8 @@ describe("Navigation Integration Tests", () => {
     render(<RouterProvider router={router} />)
 
     // Vérifier qu'on est sur la page d'erreur
-    expect(screen.getByText("404")).toBeInTheDocument()
-    expect(
-      screen.getByText("Oups! La page que vous demandez n'existe pas."),
-    ).toBeInTheDocument()
+    expect(screen.getByText("error.title")).toBeInTheDocument()
+    expect(screen.getByText("error.message")).toBeInTheDocument()
   })
 
   it("navigates from ErrorPage back to Home", async () => {
@@ -133,7 +133,7 @@ describe("Navigation Integration Tests", () => {
     const { container } = render(<RouterProvider router={router} />)
 
     // Vérifier qu'on est sur la page d'erreur
-    expect(screen.getByText("404")).toBeInTheDocument()
+    expect(screen.getByText("error.title")).toBeInTheDocument()
 
     // Cliquer sur le lien de retour à l'accueil
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
@@ -142,9 +142,7 @@ describe("Navigation Integration Tests", () => {
     await user.click(homeLink!)
 
     // Vérifier qu'on est maintenant sur la page Home
-    expect(
-      screen.getByText("Chez vous, partout et ailleurs"),
-    ).toBeInTheDocument()
+    expect(screen.getByText("banner.home")).toBeInTheDocument()
   })
 
   it("Header and Footer remain visible during navigation", async () => {
@@ -158,7 +156,7 @@ describe("Navigation Integration Tests", () => {
     expect(screen.getByRole("contentinfo")).toBeInTheDocument()
 
     // Naviguer vers About
-    const aboutLink = screen.getByRole("link", { name: /a propos/i })
+    const aboutLink = screen.getByRole("link", { name: /header\.about/i })
     await user.click(aboutLink)
 
     // Vérifier que Header et Footer sont toujours présents
