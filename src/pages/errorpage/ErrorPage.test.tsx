@@ -1,9 +1,9 @@
-import { render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
-import ErrorPage from './ErrorPage'
+import { render, screen } from "@testing-library/react"
+import { BrowserRouter } from "react-router-dom"
+import ErrorPage from "./ErrorPage"
 
-describe('ErrorPage Component', () => {
-  it('renders the error page', () => {
+describe("ErrorPage Component", () => {
+  it("renders the error page", () => {
     const { container } = render(
       <BrowserRouter>
         <ErrorPage />
@@ -11,35 +11,36 @@ describe('ErrorPage Component', () => {
     )
 
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-    const errorPage = container.querySelector('.errorpage')
+    const errorPage = container.querySelector(".errorpage")
     expect(errorPage).toBeInTheDocument()
   })
 
-  it('displays 404 error code', () => {
+  it("displays 404 error code", () => {
     render(
       <BrowserRouter>
         <ErrorPage />
       </BrowserRouter>,
     )
 
-    const title = screen.getByRole('heading', { level: 1 })
-    expect(title).toHaveTextContent('404')
+    // Utilise la clé i18n au lieu du texte traduit
+    const title = screen.getByRole("heading", { level: 1 })
+    expect(title).toHaveTextContent("error.title")
   })
 
-  it('displays error message', () => {
+  it("displays error message", () => {
     render(
       <BrowserRouter>
         <ErrorPage />
       </BrowserRouter>,
     )
 
-    const subtitle = screen.getByRole('heading', { level: 2 })
-    expect(subtitle).toHaveTextContent(
-      "Oups! La page que vous demandez n'existe pas.",
-    )
+    // Le sous-titre est un paragraphe, pas un heading
+    // Utilise la clé i18n au lieu du texte traduit
+    const subtitle = screen.getByText("error.message")
+    expect(subtitle).toBeInTheDocument()
   })
 
-  it('displays link to home page', () => {
+  it("displays link to home page", () => {
     const { container } = render(
       <BrowserRouter>
         <ErrorPage />
@@ -47,13 +48,14 @@ describe('ErrorPage Component', () => {
     )
 
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-    const homeLink = container.querySelector('.errorpage__link')
+    const homeLink = container.querySelector(".errorpage__link")
     expect(homeLink).toBeInTheDocument()
-    expect(homeLink).toHaveAttribute('href', '/')
-    expect(homeLink?.textContent).toContain('Retourner')
+    expect(homeLink).toHaveAttribute("href", "/")
+    // Utilise la clé i18n au lieu du texte traduit
+    expect(homeLink?.textContent).toBe("error.returnHome")
   })
 
-  it('has correct CSS classes', () => {
+  it("has correct CSS classes", () => {
     const { container } = render(
       <BrowserRouter>
         <ErrorPage />
@@ -61,15 +63,15 @@ describe('ErrorPage Component', () => {
     )
 
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-    const errorPage = container.querySelector('.errorpage')
+    const errorPage = container.querySelector(".errorpage")
     // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
-    const errorPageContainer = container.querySelector('.errorpage__container')
-    const title = screen.getByRole('heading', { level: 1 })
-    const subtitle = screen.getByRole('heading', { level: 2 })
+    const errorPageContainer = container.querySelector(".errorpage__container")
+    const title = screen.getByRole("heading", { level: 1 })
+    const subtitle = screen.getByText("error.message")
 
-    expect(errorPage).toHaveClass('errorpage')
-    expect(errorPageContainer).toHaveClass('errorpage__container')
-    expect(title).toHaveClass('errorpage__title')
-    expect(subtitle).toHaveClass('errorpage__subtitle')
+    expect(errorPage).toHaveClass("errorpage")
+    expect(errorPageContainer).toHaveClass("errorpage__container")
+    expect(title).toHaveClass("errorpage__title")
+    expect(subtitle).toHaveClass("errorpage__subtitle")
   })
 })

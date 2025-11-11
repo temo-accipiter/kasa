@@ -1,14 +1,14 @@
-import { render, screen } from '@testing-library/react'
-import About from './About'
+import { render, screen } from "@testing-library/react"
+import About from "./About"
 
 // Mock du composant Banner
-jest.mock('../../components/banner/Banner', () => ({
+vi.mock("../../components/banner/Banner", () => ({
   __esModule: true,
   default: ({ alt }: { alt: string }) => <div data-testid="banner">{alt}</div>,
 }))
 
 // Mock du composant Collapse
-jest.mock('../../components/collapse/Collapse', () => ({
+vi.mock("../../components/collapse/Collapse", () => ({
   __esModule: true,
   default: ({
     title,
@@ -24,30 +24,30 @@ jest.mock('../../components/collapse/Collapse', () => ({
   ),
 }))
 
-describe('About Page', () => {
-  it('renders the about page', () => {
+describe("About Page", () => {
+  it("renders the about page", () => {
     render(<About />)
 
-    const main = screen.getByRole('main')
+    const main = screen.getByRole("main")
     expect(main).toBeInTheDocument()
-    expect(main).toHaveClass('about')
+    expect(main).toHaveClass("about")
   })
 
-  it('renders the banner', () => {
+  it("renders the banner", () => {
     render(<About />)
 
-    const banner = screen.getByTestId('banner')
+    const banner = screen.getByTestId("banner")
     expect(banner).toBeInTheDocument()
-    expect(banner).toHaveTextContent('Paysage')
+    expect(banner).toHaveTextContent("Paysage")
   })
 
-  it('renders all collapse sections', () => {
+  it("renders all collapse sections", () => {
     render(<About />)
 
-    const fiabiliteCollapse = screen.getByTestId('collapse-fiabilité')
-    const respectCollapse = screen.getByTestId('collapse-respect')
-    const serviceCollapse = screen.getByTestId('collapse-service')
-    const securiteCollapse = screen.getByTestId('collapse-sécurité')
+    const fiabiliteCollapse = screen.getByTestId("collapse-fiabilité")
+    const respectCollapse = screen.getByTestId("collapse-respect")
+    const serviceCollapse = screen.getByTestId("collapse-service")
+    const securiteCollapse = screen.getByTestId("collapse-sécurité")
 
     expect(fiabiliteCollapse).toBeInTheDocument()
     expect(respectCollapse).toBeInTheDocument()
@@ -55,16 +55,16 @@ describe('About Page', () => {
     expect(securiteCollapse).toBeInTheDocument()
   })
 
-  it('displays correct titles for collapse sections', () => {
+  it("displays correct titles for collapse sections", () => {
     render(<About />)
 
-    expect(screen.getByText('Fiabilité')).toBeInTheDocument()
-    expect(screen.getByText('Respect')).toBeInTheDocument()
-    expect(screen.getByText('Service')).toBeInTheDocument()
-    expect(screen.getByText('Sécurité')).toBeInTheDocument()
+    expect(screen.getByText("Fiabilité")).toBeInTheDocument()
+    expect(screen.getByText("Respect")).toBeInTheDocument()
+    expect(screen.getByText("Service")).toBeInTheDocument()
+    expect(screen.getByText("Sécurité")).toBeInTheDocument()
   })
 
-  it('displays correct content in collapse sections', () => {
+  it("displays correct content in collapse sections", () => {
     render(<About />)
 
     expect(
@@ -72,7 +72,9 @@ describe('About Page', () => {
     ).toBeInTheDocument()
 
     // Note: Le texte "Les bienveillance fait partie..." apparaît dans deux sections (Respect et Service)
-    const bienveillanceTexts = screen.getAllByText(/Les bienveillance fait partie des valeurs/i)
+    const bienveillanceTexts = screen.getAllByText(
+      /Les bienveillance fait partie des valeurs/i,
+    )
     expect(bienveillanceTexts.length).toBeGreaterThanOrEqual(1)
 
     expect(
