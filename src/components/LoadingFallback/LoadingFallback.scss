@@ -1,0 +1,35 @@
+.loading-fallback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-color, #fff);
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(255, 96, 96, 0.1);
+    border-top-color: #ff6060;
+    border-radius: 50%;
+    animation: loading-spin 0.8s linear infinite;
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    color: var(--text-color, #333);
+    margin: 0;
+  }
+}
+
+@keyframes loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

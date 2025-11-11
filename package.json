@@ -12,13 +12,17 @@
     "react-i18next": "^16.2.4",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
-    "sass": "^1.93.3"
+    "sass": "^1.93.3",
+    "web-vitals": "^5.1.0"
   },
   "scripts": {
     "dev": "vite",
     "start": "vite",
     "build": "tsc && vite build",
+    "build:prod": "tsc && vite build --mode production",
     "preview": "vite preview",
+    "analyze": "ANALYZE=true vite build --mode production && echo '\n✓ Analysis complete! Open reports/phase1/bundle-stats.html to view the results.'",
+    "build:stats": "ANALYZE=true vite build --mode production",
     "build:analyze": "source-map-explorer 'build/static/js/*.js'",
     "optimize:images": "node scripts/optimize-images.js",
     "test": "vitest",
@@ -94,12 +98,14 @@
     "lint-staged": "^16.2.6",
     "msw": "^2.12.1",
     "prettier": "3.0.3",
+    "rollup-plugin-visualizer": "^6.0.5",
     "sass-loader": "^13.3.3",
     "serve-static": "^2.2.0",
     "sharp": "^0.34.5",
     "storybook": "^8.6.14",
     "typescript": "^5.9.3",
     "vite": "^7.2.2",
+    "vite-imagetools": "^9.0.0",
     "vitest": "^4.0.8",
     "whatwg-fetch": "^3.6.20"
   },

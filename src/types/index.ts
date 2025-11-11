@@ -17,7 +17,7 @@ export interface Logement {
 }
 
 export interface BannerProps {
-  image: string
+  image: string | { webp?: string; avif?: string; fallback: string }
   alt: string
   text?: string
 }

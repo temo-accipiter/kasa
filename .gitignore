@@ -30,3 +30,12 @@ storybook-static
 # Build and analysis logs
 build-*.log
 depcheck-output.json
+
+# Analysis reports (keep README.md and bundle-stats.html, ignore timestamped files)
+reports/baseline/build-output-*.log
+reports/baseline/bundle-size-*.md
+reports/baseline/lighthouse-*.report.*
+
+# Phase 1 reports (keep for comparison)
+# reports/phase1/bundle-stats.html
+# reports/phase1/bundle-stats.json
