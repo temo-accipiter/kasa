@@ -20,17 +20,6 @@ export default defineConfig(({ mode }) => {
       // Image optimization avec vite-imagetools
       // Génère automatiquement WebP/AVIF à partir des images sources
       imagetools({
-        // Directives par défaut pour toutes les images optimisées
-        defaultDirectives: (url) => {
-          return new URLSearchParams({
-            // Générer WebP et AVIF pour navigateurs modernes, avec fallback
-            format: 'webp;avif;jpg',
-            // Qualité optimisée (80 est le sweet spot performance/qualité)
-            quality: '80',
-            // Supporte les images responsive avec ?w=400&w=800
-            // Exemple: import img from './photo.jpg?w=400;800;1200&format=webp;avif;jpg'
-          });
-        },
         // Supprime les métadonnées EXIF pour réduire la taille
         removeMetadata: true,
       }),
