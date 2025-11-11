@@ -3,9 +3,9 @@ import type { RouteObject } from "react-router-dom"
 import App from "./App"
 
 /**
- * Configuration d'une route avec métadonnées
+ * Métadonnées supplémentaires pour une route
  */
-export interface RouteConfig extends RouteObject {
+export interface RouteMetadata {
   /** Titre de la page pour le document title */
   title?: string
   /** Description pour les métadonnées */
@@ -15,6 +15,11 @@ export interface RouteConfig extends RouteObject {
   /** Si true, précharge la route au survol des liens */
   prefetchOnHover?: boolean
 }
+
+/**
+ * Configuration d'une route avec métadonnées
+ */
+export type RouteConfig = RouteObject & RouteMetadata
 
 // Lazy loading de toutes les pages pour code-splitting optimal
 const HomePage = React.lazy(() => import("./pages/home/Home"))
@@ -76,15 +81,19 @@ export const routes: RouteConfig[] = [
  */
 export function getRouteMetadata(
   path: string,
-): Pick<RouteConfig, "title" | "description"> | null {
+): Pick<RouteMetadata, "title" | "description"> | null {
   // Recherche dans les routes parentes
   for (const route of routes) {
     if (route.children) {
       for (const child of route.children) {
-        if (child.path === path || child.path === path.replace("/", "")) {
+        const childRoute = child as RouteConfig
+        if (
+          childRoute.path === path ||
+          childRoute.path === path.replace("/", "")
+        ) {
           return {
-            title: child.title,
-            description: child.description,
+            title: childRoute.title,
+            description: childRoute.description,
           }
         }
       }
@@ -102,12 +111,13 @@ export function getPrefetchableRoutes(): RouteConfig[] {
   for (const route of routes) {
     if (route.children) {
       for (const child of route.children) {
+        const childRoute = child as RouteConfig
         if (
-          child.prefetchOnHover &&
-          child.prefetchPriority &&
-          child.prefetchPriority <= 2
+          childRoute.prefetchOnHover &&
+          childRoute.prefetchPriority &&
+          childRoute.prefetchPriority <= 2
         ) {
-          prefetchable.push(child as RouteConfig)
+          prefetchable.push(childRoute)
         }
       }
     }

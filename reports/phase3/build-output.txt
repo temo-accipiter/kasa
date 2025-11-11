@@ -1,0 +1,52 @@
+yarn run v1.22.22
+$ /home/user/kasa/node_modules/.bin/vite build
+vite v7.2.2 building client environment for production...
+transforming...
+✓ 99 modules transformed.
+rendering chunks...
+[plugin visualizer] Option `json` deprecated, please use template: "raw-data"
+computing gzip size...
+build/assets/images/fleche-KYPqDPPw.webp           0.26 kB
+build/assets/images/star-inactive-0UatifKz.webp    0.31 kB
+build/assets/images/arrowleft-D46rKFYx.webp        0.36 kB
+build/assets/images/arrowright-BOTydDEX.webp       0.37 kB
+build/assets/images/star-active-C38THKy9.webp      0.41 kB
+build/assets/images/fleche-D3_OKudn.jpeg           0.53 kB
+build/assets/images/star-inactive-DbCmf3KU.jpeg    0.54 kB
+build/assets/images/star-active-CzK8--9D.jpeg      0.59 kB
+build/assets/images/fleche-DKEzUZX_.avif           0.61 kB
+build/assets/images/star-active-DUwpeNf7.avif      0.70 kB
+build/assets/images/arrowleft-BpRJtWFK.avif        0.82 kB
+build/assets/images/arrowright-DQ7fWmLZ.avif       0.82 kB
+build/assets/images/star-inactive-DYl0WFeS.avif    0.83 kB
+build/assets/images/arrowleft-1-af0cti.jpeg        1.08 kB
+build/assets/images/arrowright-NAfMCfcO.jpeg       1.12 kB
+build/assets/images/logowhite-xJxqZI6X.webp        1.13 kB
+build/index.html                                   1.21 kB │ gzip:  0.53 kB
+build/assets/images/logowhite-bJaYBctr.avif        1.95 kB
+build/assets/images/logowhite-CiwNCCjT.jpeg        2.10 kB
+build/assets/images/LOGO-BKvTsszP.webp             2.75 kB
+build/assets/images/LOGO-C57GItbL.avif             2.86 kB
+build/assets/images/LOGO-CZNOB_ur.jpeg             4.15 kB
+build/assets/images/coast-BnAyjdVu.webp           99.47 kB
+build/assets/images/coast-BMEb0zjQ.jpeg          142.87 kB
+build/assets/images/coast-D6-4YEux.avif          183.48 kB
+build/assets/images/landscape-Buzimg0V.webp      185.36 kB
+build/assets/images/landscape-BUYI3UfF.jpeg      212.51 kB
+build/assets/images/landscape-CNEKNzMU.avif      313.55 kB
+build/assets/css/Banner-CceIjqND.css               0.61 kB │ gzip:  0.32 kB
+build/assets/css/index-C795RrKk.css               23.92 kB │ gzip:  4.99 kB
+build/assets/js/ErrorPage-BOpDsKcz.js              0.62 kB │ gzip:  0.32 kB │ map:   1.17 kB
+build/assets/js/Collapse-D5oPy9mU.js               0.99 kB │ gzip:  0.53 kB │ map:   2.86 kB
+build/assets/js/About-BXunXWmx.js                  1.03 kB │ gzip:  0.47 kB │ map:   2.84 kB
+build/assets/js/Home-BxVtFByc.js                   1.19 kB │ gzip:  0.61 kB │ map:   4.31 kB
+build/assets/js/Banner-Be8Ht15A.js                 1.48 kB │ gzip:  0.64 kB │ map:   7.16 kB
+build/assets/js/Apart-BbbrDVK2.js                  3.64 kB │ gzip:  1.22 kB │ map:  10.63 kB
+build/assets/js/index-BNBQnWme.js                 10.59 kB │ gzip:  4.29 kB │ map:  19.05 kB
+build/assets/js/vendor-router-C9xsw22h.js         11.30 kB │ gzip:  4.12 kB │ map: 116.44 kB
+build/assets/js/logements-BwAayeLr.js             25.21 kB │ gzip:  4.10 kB │ map:   0.10 kB
+build/assets/js/vendor-misc-iISnXdas.js           41.94 kB │ gzip: 14.58 kB │ map: 232.91 kB
+build/assets/js/vendor-i18n-DKTkSqW7.js           53.01 kB │ gzip: 16.70 kB │ map: 179.65 kB
+build/assets/js/vendor-react-BoLSHsZW.js         136.75 kB │ gzip: 44.02 kB │ map: 341.33 kB
+✓ built in 4.87s
+Done in 5.73s.
