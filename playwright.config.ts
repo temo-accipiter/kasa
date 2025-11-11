@@ -15,7 +15,8 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
 
   // Nombre de workers (parallélisation)
-  workers: process.env.CI ? 1 : undefined,
+  // Limité à 1 worker car on utilise --single-process pour Chromium (problèmes de permissions GPU)
+  workers: 1,
 
   // Reporter pour les résultats des tests
   reporter: [
@@ -55,6 +56,17 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         viewport: { width: 1280, height: 720 },
+        launchOptions: {
+          args: [
+            '--disable-gpu',
+            '--disable-dev-shm-usage',
+            '--disable-software-rasterizer',
+            '--disable-accelerated-2d-canvas',
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--single-process', // Nécessaire pour éviter les problèmes de permissions GPU
+          ],
+        },
       },
     },
 
@@ -79,6 +91,17 @@ export default defineConfig({
       name: 'Mobile Chrome',
       use: {
         ...devices['Pixel 5'],
+        launchOptions: {
+          args: [
+            '--disable-gpu',
+            '--disable-dev-shm-usage',
+            '--disable-software-rasterizer',
+            '--disable-accelerated-2d-canvas',
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--single-process', // Nécessaire pour éviter les problèmes de permissions GPU
+          ],
+        },
       },
     },
 
@@ -94,6 +117,17 @@ export default defineConfig({
       name: 'Tablet',
       use: {
         ...devices['iPad Pro'],
+        launchOptions: {
+          args: [
+            '--disable-gpu',
+            '--disable-dev-shm-usage',
+            '--disable-software-rasterizer',
+            '--disable-accelerated-2d-canvas',
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--single-process', // Nécessaire pour éviter les problèmes de permissions GPU
+          ],
+        },
       },
     },
   ],
