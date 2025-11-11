@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -11,6 +12,18 @@ export default defineConfig({
       // Support JSX runtime automatique
       jsxRuntime: 'automatic',
     }),
+    // Visualizer pour analyse du bundle (activé via ANALYZE=true)
+    ...(process.env.ANALYZE
+      ? [
+          visualizer({
+            filename: 'reports/baseline/bundle-stats.html',
+            open: false,
+            gzipSize: true,
+            brotliSize: true,
+            template: 'treemap',
+          }),
+        ]
+      : []),
   ],
 
   // Configuration des chemins

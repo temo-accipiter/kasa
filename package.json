@@ -94,6 +94,7 @@
     "lint-staged": "^16.2.6",
     "msw": "^2.12.1",
     "prettier": "3.0.3",
+    "rollup-plugin-visualizer": "^6.0.5",
     "sass-loader": "^13.3.3",
     "serve-static": "^2.2.0",
     "sharp": "^0.34.5",
