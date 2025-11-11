@@ -47,7 +47,7 @@ describe("Lazy Loading Integration Tests", () => {
 
     it("should load Apart page lazily", async () => {
       const router = createMemoryRouter(routes, {
-        initialEntries: ["/apart/test-id"],
+        initialEntries: ["/apart/c67ab8a7"],
       })
 
       render(<RouterProvider router={router} />)

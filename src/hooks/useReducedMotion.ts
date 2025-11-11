@@ -29,7 +29,17 @@ export function useReducedMotion(): boolean {
   )
 
   useEffect(() => {
+    // Guard against environments without matchMedia support
+    if (typeof window === "undefined" || !window.matchMedia) {
+      return
+    }
+
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+
+    // Additional guard for invalid mediaQuery object
+    if (!mediaQuery) {
+      return
+    }
 
     // Update state if media query changes
     const handleChange = (event: MediaQueryListEvent) => {
@@ -41,14 +51,14 @@ export function useReducedMotion(): boolean {
       mediaQuery.addEventListener("change", handleChange)
     }
     // Fallback for older browsers
-    else {
+    else if (mediaQuery.addListener) {
       mediaQuery.addListener(handleChange)
     }
 
     return () => {
       if (mediaQuery.removeEventListener) {
         mediaQuery.removeEventListener("change", handleChange)
-      } else {
+      } else if (mediaQuery.removeListener) {
         mediaQuery.removeListener(handleChange)
       }
     }
@@ -61,13 +71,13 @@ export function useReducedMotion(): boolean {
  * Get initial reduced motion preference
  */
 function getInitialState(): boolean {
-  // Server-side rendering guard
-  if (typeof window === "undefined") {
+  // Server-side rendering guard and matchMedia support check
+  if (typeof window === "undefined" || !window.matchMedia) {
     return false
   }
 
   const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
-  return mediaQuery.matches
+  return mediaQuery?.matches ?? false
 }
 
 /**
@@ -97,13 +107,12 @@ export function getAnimationDuration(
   normalDuration: number,
   reducedDuration: number = 0,
 ): number {
-  if (typeof window === "undefined") {
+  if (typeof window === "undefined" || !window.matchMedia) {
     return normalDuration
   }
 
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches
+  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+  const prefersReducedMotion = mediaQuery?.matches ?? false
 
   return prefersReducedMotion ? reducedDuration : normalDuration
 }
@@ -134,13 +143,12 @@ export function getAnimationDuration(
  * ```
  */
 export function getAnimationVariant<T>(normalVariant: T, reducedVariant: T): T {
-  if (typeof window === "undefined") {
+  if (typeof window === "undefined" || !window.matchMedia) {
     return normalVariant
   }
 
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches
+  const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+  const prefersReducedMotion = mediaQuery?.matches ?? false
 
   return prefersReducedMotion ? reducedVariant : normalVariant
 }
@@ -173,10 +181,20 @@ export function useReducedMotionClass(
   className: string = "reduced-motion",
 ): void {
   useEffect(() => {
+    // Guard against environments without matchMedia support
+    if (typeof window === "undefined" || !window.matchMedia) {
+      return
+    }
+
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
 
+    // Additional guard for invalid mediaQuery object
+    if (!mediaQuery) {
+      return
+    }
+
     const updateClass = () => {
-      if (mediaQuery.matches) {
+      if (mediaQuery?.matches) {
         document.documentElement.classList.add(className)
       } else {
         document.documentElement.classList.remove(className)
@@ -189,14 +207,14 @@ export function useReducedMotionClass(
     // Listen for changes
     if (mediaQuery.addEventListener) {
       mediaQuery.addEventListener("change", updateClass)
-    } else {
+    } else if (mediaQuery.addListener) {
       mediaQuery.addListener(updateClass)
     }
 
     return () => {
       if (mediaQuery.removeEventListener) {
         mediaQuery.removeEventListener("change", updateClass)
-      } else {
+      } else if (mediaQuery.removeListener) {
         mediaQuery.removeListener(updateClass)
       }
       document.documentElement.classList.remove(className)
