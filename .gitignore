@@ -35,3 +35,7 @@ depcheck-output.json
 reports/baseline/build-output-*.log
 reports/baseline/bundle-size-*.md
 reports/baseline/lighthouse-*.report.*
+
+# Phase 1 reports (keep for comparison)
+# reports/phase1/bundle-stats.html
+# reports/phase1/bundle-stats.json
