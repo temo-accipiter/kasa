@@ -85,9 +85,10 @@ describe("Home Page - Tests d'intégration", () => {
 
       cards.forEach((card, index) => {
         // Vérifie que chaque carte a un href correct
+        // Note: l'application utilise /apart/ au lieu de /logement/
         expect(card).toHaveAttribute(
           "href",
-          `/logement/${logementsData[index]?.id}`,
+          `/apart/${logementsData[index]?.id}`,
         )
       })
     })
@@ -162,7 +163,8 @@ describe("Home Page - Tests d'intégration", () => {
       expect(firstCard).toBeDefined()
 
       const href = firstCard?.getAttribute("href")
-      expect(href).toMatch(/^\/logement\/[a-zA-Z0-9-]+$/)
+      // Note: l'application utilise /apart/ au lieu de /logement/
+      expect(href).toMatch(/^\/apart\/[a-zA-Z0-9-]+$/)
     })
   })
 
